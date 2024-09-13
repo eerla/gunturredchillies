@@ -11,7 +11,7 @@ body {
 }
 .mbr-section-title {
   font-style: normal;
-  line-height: 1.2;
+  line-height: 0.75;
 }
 .mbr-section-subtitle {
   line-height: 1.3;
@@ -2254,6 +2254,10 @@ body {
   align-items: center;
 }
 .cid-rv93JPsnw9 {
+  /* background: linear-gradient(to bottom, #ffffff, #e0e0e0); 
+    padding: 60px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   padding-top: 45px;
   padding-bottom: 45px;
   background-color: #ffffff;
@@ -2262,8 +2266,8 @@ body {
   color: #767676;
 }
 .cid-rv39wUFk63 {
-  padding-top: 45px;
-  padding-bottom: 45px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #ffffff;
 }
 .cid-rv39wUFk63 .mbr-section-subtitle {
@@ -2381,3 +2385,101 @@ body {
 .cid-rv9fgzvJ8K .media-container-row .mbr-text {
   color: #232323;
 }
+
+
+
+/* about us */
+/* Add this CSS to your stylesheet or in a <style> tag in the HTML head */
+.content4 {
+  background: linear-gradient(to bottom, #ffffff, #f0d9d9); /* Soft gradient background */
+  padding: 60px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.content4 .title {
+  border: 2px solid #e0e0e0; /* Light border to frame the section */
+  padding: 20px;
+  border-radius: 10px;
+  background: white; /* White background for the title block */
+}
+
+.content4 h2 {
+  color: #333; /* Dark gray text color for the main title */
+  font-family: 'Arial', sans-serif;
+}
+
+.content4 h2 span {
+  color: #d9534f; /* Light red color for emphasis */
+}
+
+.content4 h3 {
+  color: #555; /* Medium gray color for the subtitle */
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+}
+
+.content4 h3 div {
+  margin-bottom: 20px;
+}
+
+/* Add a subtle hover effect */
+/* .content4:hover {
+  background: linear-gradient(to right, #e0e0e0, #f4f4f4);
+  transition: background 0.5s ease-in-out;
+} */
+
+ /* Add this CSS to your stylesheet or in a <style> tag in the HTML head */
+ .team1 {
+  background: linear-gradient(to bottom, #ffffff00, #f0d9d9); /* Soft gradient background */
+  padding: 40px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(240, 205, 205, 0.1); /* Subtle shadow for depth */
+}
+
+.team1 h2 {
+  color: #333; /* Dark gray text color for the main title */
+  font-family: 'Arial', sans-serif;
+}
+
+.team1 h3 {
+  color: #555; /* Medium gray color for the subtitle */
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.team1 h3 span {
+  color: #d9534f; /* Light red color for emphasis */
+}
+
+.team-item {
+  background: white; /* White background for team items */
+  border: 2px solid #e0e0e0; /* Light border to frame each team item */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.team-item:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.team-item .item-caption {
+  margin-bottom: 20px;
+}
+
+.team-item .item-name p {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.team-item .item-role p {
+  font-size: 1rem;
+  color: #777;
+}
+
