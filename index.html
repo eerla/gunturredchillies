@@ -57,23 +57,26 @@
 
 <body>
   <!-- top ribbon -->
-
   <section class="menu cid-rv0bUztCxL" once="menu" id="menu2-4">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
       <div class="container">
-        <a class="navbar-brand" href="index.html#top" style="display: flex; align-items: center;">
+        
+        <!-- Logo and Name -->
+        <a href="index.html#top" class="navbar-brand d-flex align-items-center">
           <img src="assets/images/logo.png" alt="Guntur Red Chillies" style="height: 3.8rem; margin-right: 10px;" />
-          <div style="display: flex; flex-direction: column; line-height: 1.2; text-align: left;">
+          <div style="display: flex; flex-direction: column; line-height: 1.2;">
             <span style="font-size: 1rem; font-weight: bold; color: #333;">Guntur</span>
             <span style="font-size: 1rem; font-weight: bold; color: #d21414;">Red</span>
             <span style="font-size: 1rem; font-weight: bold; color: #333;">Chillies</span>
           </div>
         </a>
-  
+        
+        <!-- Hamburger Menu Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
   
+        <!-- Navbar Menu Items -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
@@ -114,9 +117,10 @@
     </nav>
   </section>
   
+  
   <!-- top of the screen -->
   <div class="media-container"
-    style="background: url('assets/images/logo-d3.png') no-repeat center center; background-size: contain; padding: 75px 0; color: #333;">
+    style="background: url('assets/images/logo-d3.png') no-repeat center center; background-size: contain; padding: 70px 0; color: #333;">
     <div class="container" style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 20px;">
 
       <h1 style="
@@ -244,6 +248,7 @@
   </div>
   </section>
 
+  <!-- badges card -->
   <div class="container align-center" style="padding: 20px;">
     <div class="icons-media-container" style="
       display: flex; 
@@ -399,6 +404,7 @@
     </a>
   </div>
 
+  <!-- contact us card -->
   <section class="media-container-row cid-rv8K9CYlW7" style="
   padding-top: 30px; 
   padding-bottom: 30px; 
@@ -1804,6 +1810,16 @@
     }
   </style>
 
+  <script>
+    $(document).ready(function () {
+      $('.navbar-toggler-icon').on('click', function () {
+        $(this).toggleClass('collapsed');
+        $('#navbarSupportedContent').toggleClass('show');
+      });
+    });
+  </script>
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js.map"></script>
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
@@ -1818,8 +1834,8 @@
   <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
-
-
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 
