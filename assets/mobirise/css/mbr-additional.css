@@ -149,7 +149,7 @@ body {
 }
 .btn-wa,
 .btn-wa:active{
-  background-color: #11a949 !important;
+  background-color: #25D366 !important;
   border-color: #232323 !important;
   color: #232323 !important;
 }
@@ -1836,7 +1836,7 @@ body {
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding-top: 4rem;
+  padding-top: 0rem;
 }
 .cid-rv08GjIZ2E .icons-media-container .mbr-iconfont {
   font-size: 96px;
