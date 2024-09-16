@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page - Guntur Red Chillies</title>
     <link rel="stylesheet" href="styles.css">
+
+    <script type="text/javascript">
+        function zforms_open_window(url, height, width) {
+          var leftPos = 0;
+          var topPos = 0;
+          if (screen) {
+            leftPos = (screen.width - width) / 2;
+            topPos = (screen.height - height) / 2;
+            window.open(url, null, 'width=' + width + ',height=' + height + ',left=' + leftPos + ',top=' + topPos + ', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');
+          }
+        }
+      </script>
     
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -194,9 +206,19 @@
         </a>
     </div> -->
     <div class="n-mbr-section-btn">
-        <a class="n-btn n-place-order-btn" href="index.html#form4-i" target="_blank">
+
+        <button type="submit" class="n-btn n-place-order-btn order-btn" target="_blank"
+        onclick="zforms_open_window('https://forms.zohopublic.com/gunturredchillies1/form/Contactus/formperma/dRNXAbE0AMFcrUjQhR4AfgxQx3IIyKT0sUfu1ZbNWzY', 648, 700); return false;">
             Place Order Now
-        </a>
+          </button>
+
+        <!-- <div class="text-center">
+            <button type="submit" class="order-btn" style="padding: 10px 20px; background-color: #eb2f2f; color: white; border-radius: 5px; font-weight: bold;"
+            onclick="zforms_open_window('https://forms.zohopublic.com/gunturredchillies1/form/Contactus/formperma/dRNXAbE0AMFcrUjQhR4AfgxQx3IIyKT0sUfu1ZbNWzY', 648, 700); return false;">
+              Place an Order
+            </button>
+          </div> -->
+
         <a class="n-btn n-check-prices-btn" href="https://agriplus.in/mandi/andhra-pradesh/guntur" target="_blank">
             Check Today's Prices
         </a>
@@ -256,9 +278,9 @@
             <!-- Card 5 -->
             <div class="card">
                 <div class="icon-block">
-                    <a href="gunturredchillies.in">
+                    
                         <span class="material-symbols-outlined">enterprise</span>
-                    </a>
+                    
                 </div>
                 <h5>Retail & Wholesale</h5>
                 <p>Managed by Devika Exim and supported by Parvathi Chillies, our legacy of excellence in trading and exporting is your assurance of premium quality.</p>
@@ -267,9 +289,9 @@
             <!-- Card 6 -->
             <div class="card">
                 <div class="icon-block">
-                    <a href="gunturredchillies.in">
+                    
                         <span class="material-symbols-outlined">bookmark_heart</span>
-                    </a>
+                  
                 </div>
                 <h5>Trusted & Reputable</h5>
                 <p>Managed by Devika Exim and supported by Parvathi Chillies, our legacy of excellence in trading and exporting is your assurance of premium quality.</p>

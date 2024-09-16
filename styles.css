@@ -605,3 +605,11 @@ body {
 .text-center {
     text-align: center;
 }
+
+button, img {
+    outline: none; /* Removes default outline when clicked */
+  }
+
+button:focus, img:focus {
+outline: none; /* Ensures there's no outline when the element is focused */
+}
