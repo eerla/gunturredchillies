@@ -15,8 +15,9 @@ body {
 
 .container {
     display: flex;
-    padding-top: 100px; /* Space for the fixed navbar */
+    padding-top: 20px; /* Space for the fixed navbar */
 }
+
 
 /* Sidebar styling */
 .sidebar {
@@ -27,11 +28,16 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    border-right: 3px solid #D21818; /* Brand color */
+    border-right: 3px solid #D21818;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    overflow-y: auto; /* If the content overflows */
 }
 
 .sidebar .logo {
     text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
 }
 
 .sidebar .logo-img {
@@ -40,10 +46,11 @@ body {
 }
 
 .sidebar-title {
+    /*margin-bottom: 30px; */
+    font-size: 24px;
     color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 30px;
+    text-align: center;
+
 }
 
 .sidebar-title span {
@@ -53,16 +60,19 @@ body {
 .sidebar nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 30px;
 }
 
 .sidebar nav ul li {
     margin-bottom: 20px;
+    list-style: none;
+    padding: 10px 20px;
 }
 
 .sidebar nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 18px;
     display: block;
     padding: 12px 20px;
     border-radius: 8px;
@@ -134,24 +144,6 @@ body {
     height: 40px;
 }
 
-/* General styling improvements for better screen usage */
-.container {
-    display: flex;
-    padding-top: 25px; /* Space for fixed navbar */
-}
-
-
-
-.sidebar {
-    width: 250px;
-    background-color: #333;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    border-right: 3px solid #D21818;
-}
 
 .header12 {
     text-align: center;
@@ -306,7 +298,7 @@ body {
     align-items: center; */
     height: 20vh; /* Adjust to the desired height */
     text-align: center;
-    padding: 20px; /* Optional: Add padding for responsiveness */
+    padding: 0px; /* Optional: Add padding for responsiveness */
 }
 
 
@@ -332,7 +324,7 @@ body {
 
 
 .centered-heading h1 .underline {
-    position: absolute;
+    position: relative;
     bottom: -10px;
     left: 0;
     width: 100%;
@@ -350,7 +342,9 @@ body {
 /* Intro text styling */
 .intro-text {
     text-align: center;
-    padding: 10px;
+    padding-top: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .intro-text p {
@@ -362,7 +356,7 @@ body {
 
 /* product_description */
 .product-section {
-    padding: 20px;
+    padding: 0px;
     margin-left: 0px; /* Adjust for sidebar */
 }
 
@@ -371,6 +365,7 @@ body {
     grid-template-columns: repeat(1, 5fr);
     gap: 20px;
     margin-top: 20px;
+    padding: 50px;
 }
 
 .product-card {
@@ -378,8 +373,10 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
+    width: 80%;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 75px; 
 }
 
 .product-card:hover {
@@ -613,3 +610,54 @@ button, img {
 button:focus, img:focus {
 outline: none; /* Ensures there's no outline when the element is focused */
 }
+
+
+/* sidebar mobielview */
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%; /* Full width on mobile */
+      height: 60px; /* Adjust height as per design */
+      background-color: #fff; /* Background color of the ribbon */
+      display: flex;
+      justify-content: space-around; /* Distribute items evenly */
+      align-items: center;
+      z-index: 9999; /* Ensure it's on top of content */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    }
+  
+    /* Adjust logo size */
+    .sidebar .logo-img {
+      height: 40px;
+      width: auto; /* Keep aspect ratio */
+    }
+  
+    .sidebar-title {
+      display: none; /* Hide the title for mobile view */
+    }
+  
+    /* Adjust the navigation */
+    .sidebar nav ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+  
+    .sidebar nav ul li {
+      list-style: none;
+      display: inline-block;
+    }
+  
+    .sidebar nav ul li a {
+      padding: 15px;
+      font-size: 16px; /* Adjust font size */
+      text-align: center;
+      display: block;
+    }
+  }
+  
