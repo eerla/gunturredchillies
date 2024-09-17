@@ -373,11 +373,12 @@ body {
 }
 
 @media (max-width: 768px) {
+    
+
     .intro-content .tagline {
-        font-size: 16px; /* Decrease font size for smaller screens */
-        line-height: 1.5rem;
-        padding: 10px 20px; /* Add more padding for mobile */
-        margin: 15px auto; /* Adjust the margin */
+        font-size: 16px; /* Adjust font size for smaller screens */
+        letter-spacing: 0.5px; /* Reduce letter spacing */
+        line-height: 1.4; /* Ensure readability */
     }
 }
 
@@ -661,51 +662,54 @@ outline: none; /* Ensures there's no outline when the element is focused */
 
 @media screen and (max-width: 768px) {
     .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%; /* Full width on mobile */
-      height: 60px; /* Adjust height as per design */
-      background-color: #fff; /* Background color of the ribbon */
-      display: flex;
-      justify-content: space-around; /* Distribute items evenly */
-      align-items: center;
-      z-index: 9999; /* Ensure it's on top of content */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; /* Full width on mobile */
+        height: 60px; /* Fixed height to avoid scroll */
+        background-color: #fff; /* Background color of the ribbon */
+        display: flex;
+        justify-content: space-around; /* Distribute items evenly */
+        align-items: center;
+        z-index: 9999; /* Ensure it's on top of content */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+        overflow: hidden; /* Prevent internal scroll */
+        padding: 0; /* Remove padding */
+        box-sizing: border-box;
     }
-  
+
     /* Adjust logo size */
     .sidebar .logo-img {
-      padding-top: 20px;
-      height: 80px;
-      width: auto; /* Keep aspect ratio */
+        height: 40px; /* Smaller height for mobile */
+        width: auto; /* Keep aspect ratio */
     }
-  
+
     .sidebar-title {
-      display: none; /* Hide the title for mobile view */
+        display: none; /* Hide the title for mobile view */
     }
-  
+
     /* Adjust the navigation */
     .sidebar nav ul {
-      display: flex;
-      justify-content: space-around;
-      padding: 0;
-      margin: 0;
-      width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0;
+        width: 100%;
     }
-  
+
     .sidebar nav ul li {
-      list-style: none;
-      display: block;
+        list-style: none;
+        display: block;
     }
-  
+
     .sidebar nav ul li a {
-      padding: 15px;
-      font-weight: 700;
-      font-size: 16px; /* Adjust font size */
-      text-align: center;
-      display: block;
-      color: #f70000
+        padding: 10px; /* Reduce padding to fit items */
+        font-weight: 700;
+        font-size: 14px; /* Adjust font size */
+        text-align: center;
+        display: block;
+        color: #f70000;
+        text-transform: uppercase;
     }
 
     .sidebar nav ul li a:hover, .nav-link.active {
@@ -713,13 +717,8 @@ outline: none; /* Ensures there's no outline when the element is focused */
         color: #fff;
         transform: scale(1.05);
     }
+}
 
-    .intro-content .tagline {
-        font-size: 16px; /* Adjust font size for smaller screens */
-        letter-spacing: 0.5px; /* Reduce letter spacing */
-        line-height: 1.4; /* Ensure readability */
-    }
-  }
   
   
 /* Desktop View - Default Styles */
