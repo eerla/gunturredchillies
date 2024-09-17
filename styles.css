@@ -230,11 +230,27 @@ body {
 .badges-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Adjust based on the number of cards and screen size */
-    grid-gap: 20px;
+    gap: 20px;
+    margin: 20px;
+    /* grid-gap: 20px;
     position: relative;
     width: 100%;
-    max-width: 1200px; /* Adjust to fit within the screen width */
-    text-align: center;
+    max-width: 1200px;
+    text-align: center; */
+}
+
+/* For tablet screens (1 or 2 cards per row) */
+@media (max-width: 1024px) {
+    .badges-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
+    }
+}
+
+/* For mobile screens (1 card per row) */
+@media (max-width: 768px) {
+    .badges-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 card in a row */
+    }
 }
 
 .badges-row {
@@ -246,13 +262,14 @@ body {
 /* Card Styling */
 .card {
     background: #fff;
-    border-radius: 15px;
-    padding: 30px;
+    border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    /* position: relative;
     flex: 1;
-    min-width: 250px;
+    min-width: 250px; */
 }
 
 .card:hover {
@@ -343,10 +360,14 @@ body {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 0%;
+    line-height: 1.2rem;
     position: relative;
-    display: inline-block;
+    display: block;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 10px auto; /* Center it */
 }
 
 /* Intro text styling */
@@ -355,6 +376,7 @@ body {
     /* padding-top: 80px;
     padding-left: 50px;
     padding-right: 50px; */
+    width: 100%;
 }
 
 .intro-text p {
@@ -674,6 +696,12 @@ outline: none; /* Ensures there's no outline when the element is focused */
         background-color: #D21818;
         color: #fff;
         transform: scale(1.05);
+    }
+
+    .intro-content .tagline {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        letter-spacing: 0.5px; /* Reduce letter spacing */
+        line-height: 1.4; /* Ensure readability */
     }
   }
   
