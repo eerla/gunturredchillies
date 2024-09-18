@@ -311,7 +311,10 @@ body {
     align-items: center;
     height: 20vh; /* Adjust to the desired height */
     text-align: center;
-    padding: 0px; /* Optional: Add padding for responsiveness */
+    padding: 10px; /* Optional: Add padding for responsiveness */
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 
@@ -365,12 +368,12 @@ body {
     position: relative;
     display: block;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     padding: 5px;
     margin: 10px auto; /* Center it */
     max-width: 100%; /* Ensure it doesn’t overflow */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 @media (max-width: 768px) {
@@ -380,6 +383,7 @@ body {
         font-size: 16px; /* Adjust font size for smaller screens */
         letter-spacing: 0.5px; /* Reduce letter spacing */
         line-height: 1.4; /* Ensure readability */
+        padding: 20px;
     }
 }
 
@@ -510,26 +514,6 @@ body {
     max-width: 1200px;
 }
 
-/* Team Item (Card) Styles */
-
-
-/* Card Content Styles */
-/* .item-caption {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #fff; 
-    transition: box-shadow 0.3s ease;
-} */
-
-/* Name Text */
-
-
-/* Role Text */
-/* .item-role p {
-    font-size: 1rem;
-    color: #777;
-} */
 
 /* new about us */
 h2, h3 {
@@ -537,37 +521,114 @@ h2, h3 {
     letter-spacing: 1px;
 }
 
-/* About Section */
+
+/* Redesigned About Section */
 .about-section {
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.about-section .about-content h2 {
-    font-size: 3rem;
-    color: #333;
-}
-
-.about-section .about-content p.subheading {
-    font-size: 1.5rem;
-    color: #666;
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    padding: 60px 30px;
+    text-align: left;
+    background-color: #fff;
+    border-left: 6px solid #d21414; /* Accent border */
+    border-radius: 8px;
     line-height: 1.8;
-    margin: 0 auto 30px;
-    max-width: 900px;
+    font-size: 1.1rem;
+    color: #333;
+    transition: all 0.3s ease; /* Smooth transition on hover */
 }
 
-.about-section .about-content p.description {
-    font-size: 1.25rem;
-    color: #666;
-    line-height: 1.7;
-    margin: 0 auto;
-    max-width: 900px;
+.about-section:hover {
+    transform: translateY(-5px); /* Subtle hover effect */
 }
+
+/* Heading Styling */
+.about-section .about-content h2 {
+    font-size: 2.8rem;
+    color: #d21414;
+    margin-bottom: 25px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Subheading Styling */
+.about-section .about-content p.subheading {
+    font-size: 1.4rem;
+    color: #444;
+    line-height: 1.8;
+    margin: 0 auto 25px;
+    max-width: 850px;
+}
+
+/* Description Styling */
+.about-section .about-content p.description {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 850px;
+}
+
+/* Accent elements */
+.about-section span {
+    color: #eb2f2f;
+    font-weight: bold;
+}
+
+/* Divider between sections */
+.about-section .divider {
+    width: 100px;
+    height: 4px;
+    background-color: #d21414;
+    margin: 30px auto;
+    border-radius: 2px;
+}
+
+/* Mobile-Optimized About Section */
+@media screen and (max-width: 768px) {
+
+    .about-section {
+        max-width: 90%; /* Reduce width to fit mobile screens */
+        padding: 40px 20px; /* Adjust padding for smaller devices */
+        margin: 30px auto; /* Ensure proper margin on smaller screens */
+        font-size: 1rem; /* Slightly reduce font size for readability */
+    }
+
+    .about-section:hover {
+        transform: none; /* Disable hover effect for mobile */
+    }
+
+    /* Heading Styling */
+    .about-section .about-content h2 {
+        font-size: 2.2rem; /* Reduce heading size for mobile */
+        margin-bottom: 20px; /* Adjust margin for mobile */
+    }
+
+    /* Subheading Styling */
+    .about-section .about-content p.subheading {
+        font-size: 1.2rem; /* Smaller font size for subheading */
+        line-height: 1.6; /* Adjust line height for readability */
+        margin-bottom: 20px; /* Adjust margin for mobile */
+        max-width: 100%; /* Full width for text blocks */
+    }
+
+    /* Description Styling */
+    .about-section .about-content p.description {
+        font-size: 1rem; /* Reduce font size slightly */
+        line-height: 1.5; /* Reduce line height */
+        margin: 0 auto;
+        max-width: 100%; /* Full width for text blocks */
+    }
+
+    /* Divider between sections */
+    .about-section .divider {
+        width: 70px; /* Shorter divider for mobile */
+        height: 3px;
+        margin: 20px auto; /* Adjust margin */
+    }
+}
+
+
 
 .highlight {
     color: #eb2f2f;
@@ -614,17 +675,6 @@ h2, h3 {
     margin: 10px;
 }
 
-/* .team-item {
-    flex-basis: 30%; 
-    margin-bottom: 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.team-item:hover {
-    transform: scale(1.05); 
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
-} */
 
 .item-caption {
     margin-top: 15px;
@@ -636,12 +686,6 @@ h2, h3 {
     color: #eb2f2f;
 }
 
-/* .name-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-} */
 
 .item-role {
     font-size: 1rem;
@@ -792,50 +836,56 @@ outline: none; /* Ensures there's no outline when the element is focused */
         top: 0;
         left: 0;
         width: 100%; /* Full width on mobile */
-        height: 60px; /* Fixed height to avoid scroll */
+        height: 100px; /* Fixed height for the ribbon */
         background-color: #fff; /* Background color of the ribbon */
         display: flex;
-        justify-content: space-around; /* Distribute items evenly */
-        align-items: center;
-        z-index: 9999; /* Ensure it's on top of content */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
-        overflow: hidden; /* Prevent internal scroll */
-        padding: 0; /* Remove padding */
-        box-sizing: border-box;
+        justify-content: space-between; /* Space between logo and buttons */
+        align-items: center; /* Vertically align logo and buttons */
+        z-index: 9999; /* Keep on top of the page content */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 0 15px; /* Add some padding on the sides */
+        box-sizing: border-box; /* Ensure padding doesn't increase height */
+        overflow: hidden; /* Prevent any internal scroll */
+        /* min-height: 25vh; */
     }
 
-    /* Adjust logo size */
+    /* Adjust logo size and align to the left */
     .sidebar .logo-img {
-        height: 40px; /* Smaller height for mobile */
-        width: auto; /* Keep aspect ratio */
+        height: 40px; /* Adjust the logo size to fit the ribbon height */
+        width: auto;
+        flex: 0 0 auto; /* Prevent it from growing or shrinking */
+        margin-right: 10px; /* Add small space between logo and buttons */
     }
 
+    /* Hide the title on mobile */
     .sidebar-title {
-        display: none; /* Hide the title for mobile view */
+        display: none; /* Hide sidebar title on smaller screens */
     }
 
-    /* Adjust the navigation */
+    /* Navigation styles */
     .sidebar nav ul {
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end; /* Align the navigation buttons to the right */
+        flex-grow: 1; /* Allow the navigation to take up remaining space */
         padding: 0;
         margin: 0;
-        width: 100%;
+        list-style: none; /* Remove default list styling */
     }
 
     .sidebar nav ul li {
-        list-style: none;
-        display: block;
+        display: inline-block; /* Ensure list items are inline */
+        margin-left: 10px;
     }
 
     .sidebar nav ul li a {
-        padding: 10px; /* Reduce padding to fit items */
+        padding: 10px 15px; /* Adjust padding to fit within the fixed height */
         font-weight: 700;
-        font-size: 14px; /* Adjust font size */
+        font-size: 14px; /* Adjust font size to fit */
         text-align: center;
         display: block;
         color: #f70000;
         text-transform: uppercase;
+        white-space: nowrap; /* Prevent text from wrapping */
     }
 
     .sidebar nav ul li a:hover, .nav-link.active {
@@ -845,6 +895,8 @@ outline: none; /* Ensures there's no outline when the element is focused */
     }
 }
 
+
+
   
   
 /* Desktop View - Default Styles */
@@ -853,14 +905,65 @@ outline: none; /* Ensures there's no outline when the element is focused */
     /* padding: 20px; */
     width: calc(100% - 250px); /* Main content takes up the remaining space */
     transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition */
+    min-height: 100vh; /* Ensure the main content fills at least the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Push content down if needed */
+    padding: 20px;
+    box-sizing: border-box;
   }
   
   /* Media Query for Mobile View */
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .main-content {
-      margin-left: 0; /* No left margin since sidebar is now at the top */
-      width: 100%; /* Main content takes full width */
-      padding-top: 80px; /* Add padding to account for the height of the sidebar ribbon */
+        margin-left: 0; /* No left margin since sidebar is now at the top */
+        width: 100%; /* Main content takes full width */
+        padding-top: 80px; /* Add padding to account for the height of the sidebar ribbon */
     }
-  }
-  
+}
+
+.n-media-container {
+    background: url('assets/images/logo-d3.png') no-repeat center center; 
+    background-size: contain; 
+    padding: 10px 0; 
+    color: #333;
+}
+
+.n-media-container-row {
+    padding-top: 30px; 
+    padding-bottom: 30px; 
+    background-color: #f5f5f5; 
+    text-align: center; 
+    padding-left: 20px; /* Add padding for smaller screens */
+    padding-right: 20px; /* Add padding for smaller screens */
+    border-radius: 10px; /* Optional: add a slight border-radius for a modern look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: add a shadow to make the section pop */
+}
+
+.n-media-container-row h1 {
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: #d21414; 
+    margin-bottom: 15px; 
+    position: relative; 
+    display: inline-block;
+}
+
+.n-media-container-row h1 span {
+    background: linear-gradient(to right, #E57373, #E57373); 
+    -webkit-background-clip: text; 
+    color: transparent;
+}
+
+.n-media-container-row p {
+    font-size: 1.2rem; 
+    color: #555; 
+    font-weight: 400; 
+    margin-top: 10px;
+}
+
+.n-media-container-row p span {
+    font-size: 1rem; 
+    font-style: italic; 
+    color: #777;
+}
