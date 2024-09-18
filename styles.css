@@ -543,10 +543,10 @@ h2, h3 {
 
 /* Heading Styling */
 .about-section .about-content h2 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     color: #d21414;
-    margin-bottom: 25px;
-    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     font-weight: 700;
 }
@@ -584,49 +584,7 @@ h2, h3 {
     border-radius: 2px;
 }
 
-/* Mobile-Optimized About Section */
-@media screen and (max-width: 768px) {
 
-    .about-section {
-        max-width: 90%; /* Reduce width to fit mobile screens */
-        padding: 40px 20px; /* Adjust padding for smaller devices */
-        margin: 30px auto; /* Ensure proper margin on smaller screens */
-        font-size: 1rem; /* Slightly reduce font size for readability */
-    }
-
-    .about-section:hover {
-        transform: none; /* Disable hover effect for mobile */
-    }
-
-    /* Heading Styling */
-    .about-section .about-content h2 {
-        font-size: 2.2rem; /* Reduce heading size for mobile */
-        margin-bottom: 20px; /* Adjust margin for mobile */
-    }
-
-    /* Subheading Styling */
-    .about-section .about-content p.subheading {
-        font-size: 1.2rem; /* Smaller font size for subheading */
-        line-height: 1.6; /* Adjust line height for readability */
-        margin-bottom: 20px; /* Adjust margin for mobile */
-        max-width: 100%; /* Full width for text blocks */
-    }
-
-    /* Description Styling */
-    .about-section .about-content p.description {
-        font-size: 1rem; /* Reduce font size slightly */
-        line-height: 1.5; /* Reduce line height */
-        margin: 0 auto;
-        max-width: 100%; /* Full width for text blocks */
-    }
-
-    /* Divider between sections */
-    .about-section .divider {
-        width: 70px; /* Shorter divider for mobile */
-        height: 3px;
-        margin: 20px auto; /* Adjust margin */
-    }
-}
 
 
 
@@ -694,19 +652,6 @@ h2, h3 {
 
 /* Responsive Design for Mobile */
 @media screen and (max-width: 768px) {
-    .about-section {
-        padding: 10px;
-    }
-
-    .about-section h2 {
-        font-size: 2.2rem;
-    }
-
-    .about-section p.subheading,
-    .about-section p.description {
-        font-size: 1.2rem;
-    }
-
     /* Team Section Mobile Scaling */
     .team-row {
         display: block;
@@ -719,7 +664,54 @@ h2, h3 {
     }
 }
 
+/* Mobile-Optimized About Section */
+@media screen and (max-width: 768px) {
 
+    .about-section {
+        max-width: 100%; /* Reduce width to fit mobile screens */
+        padding: 40px 20px; /* Adjust padding for smaller devices */
+        margin: 0px auto; /* Ensure proper margin on smaller screens */
+        font-size: 1rem; /* Slightly reduce font size for readability */
+    }
+
+    .about-section:hover {
+        transform: none; /* Disable hover effect for mobile */
+    }
+
+    /* Heading Styling */
+    .about-section .about-content h2 {
+        font-size: 1rem; /* Reduce heading size for mobile */
+        margin-bottom: 0px; /* Adjust margin for mobile */
+    }
+
+    .about-section .about-content h1 {
+        font-size: 2rem; /* Reduce heading size for mobile */
+        margin-bottom: 0px; /* Adjust margin for mobile */
+    }
+
+    /* Subheading Styling */
+    .about-section .about-content p.subheading {
+        font-size: 1.2rem; /* Smaller font size for subheading */
+        line-height: 1.6; /* Adjust line height for readability */
+        margin-bottom: 20px; /* Adjust margin for mobile */
+        max-width: 100%; /* Full width for text blocks */
+    }
+
+    /* Description Styling */
+    .about-section .about-content p.description {
+        font-size: 1rem; /* Reduce font size slightly */
+        line-height: 1.5; /* Reduce line height */
+        margin: 0 auto;
+        max-width: 100%; /* Full width for text blocks */
+    }
+
+    /* Divider between sections */
+    .about-section .divider {
+        width: 70px; /* Shorter divider for mobile */
+        height: 3px;
+        margin: 20px auto; /* Adjust margin */
+    }
+}
 
 .custom-order-info {
     font-size: 1.5rem; /* Increased font size for better visibility */
@@ -836,25 +828,31 @@ outline: none; /* Ensures there's no outline when the element is focused */
         top: 0;
         left: 0;
         width: 100%; /* Full width on mobile */
-        height: 100px; /* Fixed height for the ribbon */
+        height: 80px; /* Fixed height for the ribbon */
         background-color: #fff; /* Background color of the ribbon */
         display: flex;
-        justify-content: space-between; /* Space between logo and buttons */
+        justify-content: space-between; 
         align-items: center; /* Vertically align logo and buttons */
         z-index: 9999; /* Keep on top of the page content */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
-        padding: 0 15px; /* Add some padding on the sides */
+        padding: 0 5px; /* Add some padding on the sides */
         box-sizing: border-box; /* Ensure padding doesn't increase height */
         overflow: hidden; /* Prevent any internal scroll */
-        /* min-height: 25vh; */
+    }
+
+    .sidebar .logo {
+        text-align: center;
+        margin-bottom: 0px;
+        padding: 0px;
+        position: fixed;
+        /* display: none; */
     }
 
     /* Adjust logo size and align to the left */
     .sidebar .logo-img {
         height: 40px; /* Adjust the logo size to fit the ribbon height */
         width: auto;
-        flex: 0 0 auto; /* Prevent it from growing or shrinking */
-        margin-right: 10px; /* Add small space between logo and buttons */
+        margin-right: 0px; /* Add small space between logo and buttons */
     }
 
     /* Hide the title on mobile */
@@ -866,32 +864,40 @@ outline: none; /* Ensures there's no outline when the element is focused */
     .sidebar nav ul {
         display: flex;
         justify-content: flex-end; /* Align the navigation buttons to the right */
-        flex-grow: 1; /* Allow the navigation to take up remaining space */
-        padding: 0;
+        gap: 15px; /* Add space between buttons */
         margin: 0;
-        list-style: none; /* Remove default list styling */
+        padding-bottom: 0px;
+        list-style: none;
+        width: auto;
+        flex-wrap: nowrap;
     }
 
     .sidebar nav ul li {
-        display: inline-block; /* Ensure list items are inline */
-        margin-left: 10px;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0px;
+    }
+
+    .sidebar nav {
+        padding-top: 40px;
+        position: static;
     }
 
     .sidebar nav ul li a {
-        padding: 10px 15px; /* Adjust padding to fit within the fixed height */
+        font-size: 14px; /* Adjust font size for mobile */
         font-weight: 700;
-        font-size: 14px; /* Adjust font size to fit */
-        text-align: center;
+        padding: 0px;
         display: block;
-        color: #f70000;
         text-transform: uppercase;
-        white-space: nowrap; /* Prevent text from wrapping */
+        text-align: center;
+        color: #333; /* Button text color */
     }
 
     .sidebar nav ul li a:hover, .nav-link.active {
-        background-color: #D21818;
-        color: #fff;
-        transform: scale(1.05);
+        background-color: #ffffff;
+        color: #f70000;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
     }
 }
 
@@ -918,8 +924,18 @@ outline: none; /* Ensures there's no outline when the element is focused */
     .main-content {
         margin-left: 0; /* No left margin since sidebar is now at the top */
         width: 100%; /* Main content takes full width */
-        padding-top: 80px; /* Add padding to account for the height of the sidebar ribbon */
+        padding-top: 100px; /* Add padding to account for the height of the sidebar ribbon */
+        
     }
+
+    .n-media-container {
+        background: url('assets/images/logo-d3.png') no-repeat center center; 
+        background-size: contain; 
+        padding: 10px 0; 
+        color: #333;
+        margin-top: 30px;
+    }
+    
 }
 
 .n-media-container {
@@ -927,6 +943,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
     background-size: contain; 
     padding: 10px 0; 
     color: #333;
+    width: 100%;
 }
 
 .n-media-container-row {
@@ -966,4 +983,83 @@ outline: none; /* Ensures there's no outline when the element is focused */
     font-size: 1rem; 
     font-style: italic; 
     color: #777;
+}
+
+/* new contact us  */
+/* General Info Section Styling */
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f7f8fa;
+    padding: 50px;
+    gap: 50px;
+    flex-wrap: wrap; /* Allow wrapping for mobile view */
+}
+
+/* Left Section Styling */
+.left-section {
+    text-align: center;
+    color: #eb2f2f;
+    flex: 1;
+}
+
+.left-section h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.1));
+    display: inline-block;
+}
+
+/* Right Section Styling */
+.right-section {
+    text-align: left;
+    flex: 1;
+    color: #333;
+}
+
+.right-section h5 {
+    font-size: 1.125rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.right-section p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.right-section a {
+    color: #d61818;
+    text-decoration: none;
+}
+
+.right-section a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column; /* Stack sections vertically */
+        padding: 20px;
+    }
+
+    .left-section h1 {
+        font-size: 1.4rem; /* Adjust font size for smaller screens */
+        padding: 15px;
+    }
+
+    .right-section h5 {
+        font-size: 1rem; /* Reduce font size */
+    }
+
+    .right-section p {
+        font-size: 0.9rem;
+    }
 }
