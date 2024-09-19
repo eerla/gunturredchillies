@@ -1318,7 +1318,8 @@ outline: none; /* Ensures there's no outline when the element is focused */
 @media screen and (max-width: 600px) {
     .banner-container {
         padding: 15px;
-        margin: 25px;
+        margin-top: 25px;
+        
     }
 
     .banner-content h2 {
@@ -1334,7 +1335,8 @@ outline: none; /* Ensures there's no outline when the element is focused */
 @media screen and (max-width: 768px) {
     .banner-container {
         padding: 15px;
-        margin: 25px;
+        margin-top: 25px;
+
     }
 
     .banner-content h2 {
