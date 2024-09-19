@@ -311,6 +311,15 @@ body {
         padding: 5px 0; /* Adjust padding to prevent overflow */
         margin-top: 0px;
     }
+
+    .tagline p {
+        font-size: 18px; /* Adjust font size for smaller screens */
+        letter-spacing: 0.5px; /* Reduce letter spacing */
+        line-height: 1.4; /* Ensure readability */
+        padding: 20px;
+        margin-top: 20px;
+        color: #d21414;
+    }
 }
 
 @media (max-width: 768px) {
@@ -429,8 +438,8 @@ body {
     }
 
     .tagline p {
-        font-size: 16px; /* Adjust font size for smaller screens */
-        color: #555; /* Softer text color */
+        font-size: 24px; /* Adjust font size for smaller screens */
+        color: #d21414; /* Softer text color */
         margin: 0; /* Remove any default margins */
         text-align: center;
     }
