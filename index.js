@@ -556,3 +556,19 @@ function modifyRatesToUSD(incomingBuffer) {
     }
   }
 }
+
+
+function toggleImage() {
+  var imageSection = document.getElementById("image-section");
+  var arrow = document.getElementById("arrow");
+
+  // Toggle display of image section
+  if (imageSection.style.display === "none") {
+      imageSection.style.display = "block"; // Show the image
+      arrow.className = "arrow-down"; // Change arrow to downward
+  } else {
+      imageSection.style.display = "none"; // Hide the image
+      arrow.className = "arrow-up"; // Change arrow to upward
+  }
+}
+

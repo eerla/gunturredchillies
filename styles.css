@@ -1254,3 +1254,94 @@ outline: none; /* Ensures there's no outline when the element is focused */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+/* Banner styling */
+.banner-container {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.banner-container:hover {
+    background-color: #e0e0e0;
+}
+
+.banner-content h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    display: inline-block;
+}
+
+.banner-content .arrow-up,
+.banner-content .arrow-down {
+    display: inline-block;
+    margin-left: 10px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+/* Arrow styles */
+.arrow-up {
+    border-bottom: 10px solid #333; /* Upward arrow */
+}
+
+.arrow-down {
+    border-top: 10px solid #333; /* Downward arrow */
+}
+
+/* Image container */
+.image-container {
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    background-color: #ffffff;
+    transition: max-height 0.4s ease;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+
+/* Media Query for mobile responsiveness */
+@media screen and (max-width: 600px) {
+    .banner-container {
+        padding: 15px;
+        margin: 25px;
+    }
+
+    .banner-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .image-container img {
+        width: 100%; /* Ensure image scales for smaller screens */
+    }
+}
+
+/* Media Query for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .banner-container {
+        padding: 15px;
+        margin: 25px;
+    }
+
+    .banner-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .image-container img {
+        width: 100%; /* Ensure image scales for smaller screens */
+    }
+}
