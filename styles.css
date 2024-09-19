@@ -303,6 +303,30 @@ body {
     line-height: 1.6;
 }
 
+
+@media (max-width: 768px) {
+
+    /* Heading styling */
+    .centered-heading h1 {
+        font-size: 24px; /* Adjust font size for mobile screens */
+        line-height: 1.2; /* Reduce line spacing for mobile */
+    }
+
+    .centered-heading h1 span {
+        display: block; /* Ensure spans (like Red) are on new lines */
+        font-size: 22px; /* Adjust span font size */
+    }
+
+    /* Red underline for "Red" */
+    .centered-heading h1 .underline {
+        display: block; /* Ensures the underline spans the width */
+        margin: 5px auto 0 auto; /* Adds spacing around underline */
+        width: 60px;
+        height: 4px;
+        background-color: #d21414; /* Red underline color */
+    }
+
+}
 /* headings */
 /* Center the heading container in the page */
 .centered-heading {
@@ -340,7 +364,7 @@ body {
 
 
 .centered-heading h1 .underline {
-    position: relative;
+    /* position: fixed; */
     bottom: 0px;
     left: 0;
     width: 100%;
@@ -384,6 +408,25 @@ body {
         letter-spacing: 0.5px; /* Reduce letter spacing */
         line-height: 1.4; /* Ensure readability */
         padding: 20px;
+        margin-top: 20px;
+    }
+
+    .intro-text p {
+        font-size: 16px; /* Reduce font size for readability on smaller screens */
+        line-height: 1.5; /* Line spacing for better readability */
+        margin: 15px 0; /* Add margin for spacing between paragraphs */
+    }
+
+    .tagline p {
+        font-size: 16px; /* Adjust font size for smaller screens */
+        color: #555; /* Softer text color */
+        margin: 0; /* Remove any default margins */
+        text-align: center;
+    }
+
+    .intro-content {
+        text-align: center;
+        padding: 10px;
     }
 }
 
