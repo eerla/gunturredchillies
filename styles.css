@@ -305,22 +305,25 @@ body {
 
 @media (max-width: 403px) {
     .intro-content .centered-heading h1 {
-        font-size: 8vw; /* Scale the font size relative to the viewport width */
+        font-size: 15px; /* Scale the font size relative to the viewport width */
         letter-spacing: 1px; /* Reduce letter-spacing for smaller screens */
         line-height: 1.1; /* Slightly reduce line-height for better fit */
         padding: 5px 0; /* Adjust padding to prevent overflow */
+        margin-top: 0px;
     }
 }
 
 @media (max-width: 768px) {
 
     /* Heading styling */
-    .centered-heading h1 {
-        font-size: 24px; /* Adjust font size for mobile screens */
+    .intro-content .centered-heading h1 {
+        font-size: 50px; /* Adjust font size for mobile screens */
         line-height: 1.2; /* Reduce line spacing for mobile */
+        margin: 0px;
+        padding-top: 0px;
     }
 
-    .centered-heading h1 span {
+    .intro-content .centered-heading h1 span {
         display: block; /* Ensure spans (like Red) are on new lines */
         font-size: 22px; /* Adjust span font size */
     }
