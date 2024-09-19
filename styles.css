@@ -358,13 +358,13 @@ body {
     text-align: center;
 }
 
-.intro-content .tagline {
-    font-size: 20px;
+.tagline {
+    font-size: 25px;
     color: #d21414;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    line-height: 1.2rem;
+    line-height: 2rem;
     position: relative;
     display: block;
     text-align: center;
@@ -379,8 +379,8 @@ body {
 @media (max-width: 768px) {
     
 
-    .intro-content .tagline {
-        font-size: 16px; /* Adjust font size for smaller screens */
+    .tagline {
+        font-size: 18px; /* Adjust font size for smaller screens */
         letter-spacing: 0.5px; /* Reduce letter spacing */
         line-height: 1.4; /* Ensure readability */
         padding: 20px;
@@ -809,8 +809,15 @@ h2, h3 {
 }
 
 .text-center {
-    text-align: center;
+    text-align: center; /* Centers the text */
+    font-style: italic; /* Italicizes the text */
+    font-size: 24px; /* Adjust the size as needed */
+    font-weight: bolder; /* Makes the text bold */
+    letter-spacing: 1px; /* Adds space between the letters */
+    color: #333; /* Sets the text color (you can customize this) */
+    margin-bottom: 20px; /* Adds space below the heading */
 }
+
 
 button, img {
     outline: none; /* Removes default outline when clicked */
@@ -1062,4 +1069,121 @@ outline: none; /* Ensures there's no outline when the element is focused */
     .right-section p {
         font-size: 0.9rem;
     }
+}
+
+
+/* Contact Us Section Styling */
+
+/* Mobile view: Stacks the columns vertically */
+@media (max-width: 768px) {
+    .contact-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* Desktop view: Aligns the columns side by side */
+.contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 20px; /* Optional: Space between the two divs */
+}
+
+.social-map-column, .contact-column {
+    padding: 20px;
+}
+
+.media-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    text-align: center;
+}
+
+/* Button and Icon Styling */
+.social-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn:hover img, .email-btn:hover img, .whatsapp-btn:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-text {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.instagram-text {
+    background: linear-gradient(to right, #FF6A00, #EE0979);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.facebook-text {
+    background: linear-gradient(to right, #0084FF, #00C6FF);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Google Map Styling */
+.google-map {
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.google-map iframe {
+    border: none;
+    width: 100%;
+    height: 450px;
+}
+
+/* Button Styling */
+.order-btn, .email-btn, .whatsapp-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-btn {
+    padding: 10px 20px;
+    background-color: #eb2f2f;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-enquiry, .contact-whatsapp {
+    margin-top: 30px;
+}
+
+.email-btn img, .whatsapp-btn img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
