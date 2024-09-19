@@ -303,6 +303,14 @@ body {
     line-height: 1.6;
 }
 
+@media (max-width: 403px) {
+    .intro-content .centered-heading h1 {
+        font-size: 8vw; /* Scale the font size relative to the viewport width */
+        letter-spacing: 1px; /* Reduce letter-spacing for smaller screens */
+        line-height: 1.1; /* Slightly reduce line-height for better fit */
+        padding: 5px 0; /* Adjust padding to prevent overflow */
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -913,10 +921,10 @@ outline: none; /* Ensures there's no outline when the element is focused */
     /* Navigation styles */
     .sidebar nav ul {
         display: flex;
-        justify-content: flex-end; /* Align the navigation buttons to the right */
+        justify-content: space-between; /* Align the navigation buttons to the right */
         gap: 15px; /* Add space between buttons */
-        margin: 0;
-        padding-bottom: 0px;
+        margin: 0px;
+        
         list-style: none;
         width: auto;
         flex-wrap: nowrap;
@@ -926,6 +934,8 @@ outline: none; /* Ensures there's no outline when the element is focused */
         list-style: none;
         margin: 0 auto;
         padding: 0px;
+        flex-grow: 1; /* Make each list item take up equal space */
+        text-align: center; /* Center the text inside each list item */
     }
 
     .sidebar nav {
@@ -940,6 +950,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
         display: block;
         text-transform: uppercase;
         text-align: center;
+        text-decoration: none;
         color: #333; /* Button text color */
     }
 
