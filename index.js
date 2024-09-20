@@ -1,3 +1,15 @@
+const blogs = [
+  {
+      title: "How to store dry red chillies for longer shelf life?",
+      description: "Red chillies are essential in Indian cuisine, providing color, flavor, and taste; however, improper storage can lead to spoilage. To extend the shelf life of dry red chillies, it’s crucial to store them in airtight containers in a cool, dark place and to use them within a year. Common causes of spoilage include dehydration, light, oxygen, and temperature fluctuations. Tips for repacking include using vacuum-sealed bags, drying them with a food dehydrator, or storing them in sterilized glass jars. Avoid plastic bags and ensure chillies are completely dry before storage to prevent oxidation. Regularly inspect stored chillies for damage and label containers with packing dates. By following these guidelines, you can effectively prolong the freshness of your dry red chillies, making them last longer for your culinary needs."
+  },
+  {
+      title: "5 Tips for Drying Red Chillies at Home",
+      description: "Drying chillies at home is easy with these 5 tips: air dry, use a dehydrator, sun dry, oven dry, and microwave dry. Each method ensures long-lasting flavor and quality."
+  },
+];
+
+
 var sannamObj = [];
 var tejaObj = [];
 var byadgiObj = [];
@@ -557,7 +569,7 @@ function modifyRatesToUSD(incomingBuffer) {
   }
 }
 
-
+// gst image
 function toggleImage() {
   var imageSection = document.getElementById("image-section");
   var arrow = document.getElementById("arrow");
@@ -572,7 +584,56 @@ function toggleImage() {
   }
 }
 
+// blogs
 
+
+
+// Function to generate the blog sections dynamically
+function generateBlogs() {
+  const blogContainer = document.getElementById('blog-sections'); // Parent container to hold all blogs
+  blogs.forEach((blog, index) => {
+      // Create a new div for each blog
+      const blogHTML = `
+          <div class="blog-section" data-blog-id="${index + 1}">
+              <div class="banner-container" onclick="toggleBlogPost(this)">
+                  <div class="banner-content">
+                      <h2>${blog.title}</h2>
+                      <span class="arrow-up"></span>
+                  </div>
+              </div>
+              <div class="b-container" style="display: none;">
+                  <p>${blog.description}</p>
+              </div>
+          </div>
+      `;
+      // Append the HTML to the container
+      blogContainer.innerHTML += blogHTML;
+  });
+}
+
+// Call the function to generate the blogs on page load
+document.addEventListener('DOMContentLoaded', generateBlogs);
+
+
+
+function toggleBlogPost(element) {
+  // Find the blog container (b-container) related to the clicked banner
+  const blogContainer = element.nextElementSibling;
+
+  // Toggle the display of the blog post
+  if (blogContainer.style.display === "none") {
+      blogContainer.style.display = "block";
+      element.querySelector('.arrow-up').classList.add('arrow-down');
+      element.querySelector('.arrow-up').classList.remove('arrow-up')
+  } else {
+      blogContainer.style.display = "none";
+      element.querySelector('.arrow-down').classList.add('arrow-up')
+      element.querySelector('.arrow-down').classList.remove('arrow-down');
+  }
+}
+
+
+// google sheets - price table
 const API_KEY = 'AIzaSyDTNXpn-TFWhInawEkrm94tp7wSVDIG9T0';
 const SPREADSHEET_ID = '1ntdLZUDLOj8cAfd6vessJ8-ENsbOBu05KuVtiELkq0Y';
 const RANGE = 'chilli_prices!A1:C18'; // Adjust this range based on your data structure
@@ -590,7 +651,7 @@ async function fetchDailyPrices() {
 function displayPrices(prices) {
   const pricesContainer = document.getElementById('daily-prices');
   let html = '<table class="prices-table">';
-
+  
   html += '<thead><tr><th>Chilli Type</th><th>Variety</th><th>Price per Qtl</th></tr></thead>'; // Add table headers
   html += '<tbody>';
 
@@ -601,7 +662,6 @@ function displayPrices(prices) {
   html += '</tbody></table>';
   pricesContainer.innerHTML = html;
 }
-
 
 // Fetch prices when the page loads
 window.onload = fetchDailyPrices;

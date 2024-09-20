@@ -1424,7 +1424,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 }
 
 
-.b-heading h1 {
+.b-heading h3 {
     font-size: 2rem;
     font-weight: 700;
     color: #333;
@@ -1435,4 +1435,55 @@ outline: none; /* Ensures there's no outline when the element is focused */
     position: relative;
     display: inline-block;
     padding: 0 0;
+    margin-top: 20px;
+}
+
+.blog-section {
+    margin: 20px 0; /* Add space between blog sections */
+    border: 1px solid #ddd; /* Light border around each section */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Prevent overflow issues */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.banner-container {
+    background-color: #f7f7f7; /* Light background for the header */
+    padding: 15px; /* Padding inside the banner */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.banner-container:hover {
+    background-color: #e7e7e7; /* Darker background on hover */
+}
+
+.banner-content h2 {
+    font-size: 1.5rem; /* Font size for the heading */
+    color: #333; /* Dark text color */
+    margin: 0; /* Remove default margin */
+    font-weight: 600; /* Semi-bold font weight */
+}
+
+.arrow-up {
+    display: inline-block; /* Make the arrow visible */
+    width: 10px; /* Width of the arrow */
+    height: 10px; /* Height of the arrow */
+    background-color: transparent; /* Background color */
+    border: solid #333; /* Arrow color */
+    border-width: 0 10px 10px 0; /* Arrow styling */
+    transform: rotate(0deg); /* Rotate to point up */
+    margin-left: 10px; /* Space between title and arrow */
+}
+
+.b-container {
+    padding: 15px; /* Padding for the content container */
+    background-color: #fff; /* White background for the content */
+    border-top: 1px solid #ddd; /* Light border between header and content */
+}
+
+.b-container p {
+    font-size: 1rem; /* Font size for the paragraph */
+    color: #555; /* Lighter text color */
+    line-height: 1.6; /* Increased line height for readability */
+    margin: 0; /* Remove default margin */
 }
