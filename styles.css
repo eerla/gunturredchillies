@@ -1368,7 +1368,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .prices-table th {
     background-color: #d21414;
     color: white;
-    padding: 12px 15px;
+    padding: 6px 6px;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.2rem;
@@ -1390,7 +1390,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 
 /* Styling table cells */
 .prices-table td {
-    padding: 12px 15px;
+    padding: 3px 5px;
     text-align: left;
 }
 
