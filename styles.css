@@ -1351,3 +1351,88 @@ outline: none; /* Ensures there's no outline when the element is focused */
         width: 100%; /* Ensure image scales for smaller screens */
     }
 }
+
+/*our blog*/
+/* Styling the table */
+.prices-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0 0;
+    border: 2px solid #d21414; /* Outer border */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling table headers */
+.prices-table th {
+    background-color: #d21414;
+    color: white;
+    padding: 12px 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    border-bottom: 4px solid #b10e0e; /* Add bottom border to header */
+}
+
+/* Styling table rows */
+.prices-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.prices-table tr:nth-child(even) {
+    background-color: #f7f7f7; /* Alternate row colors */
+}
+
+.prices-table tr:hover {
+    background-color: #ffe6e6; /* Hover effect on rows */
+}
+
+/* Styling table cells */
+.prices-table td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+/* Styling the first column */
+.price-type {
+    font-weight: bold;
+    color: #d21414;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .prices-table {
+        font-size: 0.9rem;
+    }
+
+    .prices-table th, .prices-table td {
+        padding: 8px;
+    }
+}
+
+
+.b-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px; /* Optional: Add padding for responsiveness */
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+
+.b-heading h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    padding: 0 0;
+}

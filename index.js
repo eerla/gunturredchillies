@@ -572,3 +572,36 @@ function toggleImage() {
   }
 }
 
+
+const API_KEY = 'AIzaSyDTNXpn-TFWhInawEkrm94tp7wSVDIG9T0';
+const SPREADSHEET_ID = '1ntdLZUDLOj8cAfd6vessJ8-ENsbOBu05KuVtiELkq0Y';
+const RANGE = 'chilli_prices!A1:C18'; // Adjust this range based on your data structure
+
+// Function to fetch data from Google Sheets
+async function fetchDailyPrices() {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    displayPrices(data.values);
+}
+
+// Function to display prices on the webpage
+function displayPrices(prices) {
+  const pricesContainer = document.getElementById('daily-prices');
+  let html = '<table class="prices-table">';
+
+  html += '<thead><tr><th>Chilli Type</th><th>Variety</th><th>Price per Qtl</th></tr></thead>'; // Add table headers
+  html += '<tbody>';
+
+  prices.forEach(row => {
+      html += `<tr class="price-row"><td class="price-type">${row[0]}</td><td class="price-variety">${row[1]}</td><td class="price-price">${row[2]}</td></tr>`;
+  });
+
+  html += '</tbody></table>';
+  pricesContainer.innerHTML = html;
+}
+
+
+// Fetch prices when the page loads
+window.onload = fetchDailyPrices;
