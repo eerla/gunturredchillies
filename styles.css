@@ -462,6 +462,12 @@ body {
         margin: 15px 0; /* Add margin for spacing between paragraphs */
     }
 
+    .intro-text p span {
+        font-size: 16px; /* Reduce font size for readability on smaller screens */
+        line-height: 1.5; /* Line spacing for better readability */
+        margin: 15px 0; /* Add margin for spacing between paragraphs */
+    }
+
     .tagline p {
         font-size: 24px; /* Adjust font size for smaller screens */
         color: #d21414; /* Softer text color */
@@ -489,6 +495,10 @@ body {
     font-size: 25px;
     color: #666;
     line-height: 1.6;
+}
+
+.intro-text p span{
+    color: #d21414;
 }
 
 
@@ -1069,7 +1079,22 @@ outline: none; /* Ensures there's no outline when the element is focused */
     display: inline-block;
 }
 
+.n-media-container-row h2 {
+    font-size: 2.5rem; 
+    font-weight: 700; 
+    color: #d21414; 
+    margin-bottom: 15px; 
+    position: relative; 
+    display: inline-block;
+}
+
 .n-media-container-row h1 span {
+    background: linear-gradient(to right, #E57373, #E57373); 
+    -webkit-background-clip: text; 
+    color: transparent;
+}
+
+.n-media-container-row h2 span {
     background: linear-gradient(to right, #E57373, #E57373); 
     -webkit-background-clip: text; 
     color: transparent;
@@ -1221,6 +1246,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
     transform: scale(1.1);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
+
 
 .whatsapp-btn:focus,
 .whatsapp-btn:active,
@@ -1521,4 +1547,9 @@ outline: none; /* Ensures there's no outline when the element is focused */
     color: #555; /* Lighter text color */
     line-height: 1.6; /* Increased line height for readability */
     margin: 0; /* Remove default margin */
+}
+
+.hidden-iframe {
+    display: none;
+    visibility: hidden;
 }
