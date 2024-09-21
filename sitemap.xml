@@ -9,12 +9,32 @@
 
 <url>
   <loc>https://gunturredchillies.in/</loc>
-  <lastmod>2024-09-11T13:25:11+00:00</lastmod>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://gunturredchillies.in/index.html</loc>
-  <lastmod>2024-09-11T13:25:11+00:00</lastmod>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gunturredchillies.in/product_description.html</loc>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gunturredchillies.in/about_us.html</loc>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gunturredchillies.in/contact_us.html</loc>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gunturredchillies.in/blog.html</loc>
+  <lastmod>2024-09-21T13:17:48+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
