@@ -9,512 +9,6 @@ const blogs = [
   },
 ];
 
-
-var sannamObj = [];
-var tejaObj = [];
-var byadgiObj = [];
-var threeFourtyOneobj = [];
-// var no5Obj = [];
-var devanurObj = [];
-var rowsToDisplay = 6;
-var USDRate = 0;
-var rootArray = [];
-var rootArrayForCharts = [];
-
-function prepareChartInfo(rowsInput, inputGraphKey, fromHtml) {
-  var rows = rowsInput ? rowsInput : rowsToDisplay;
-  var consolidatedPrices = [];
-  consolidatedPrices = rootArrayForCharts.slice();
-  for (var i = 1; i <= rows; i++) {
-    var dateInfo = '';
-    var tejaIndividual = [],
-      sannamIndividual = [],
-      byadgiIndividual = [],
-      threeFourtyOneIndividual = [],
-      // no5Individual = [],
-      devanurIndividual = [];
-    var tejaBuffer = 1,
-      sannamBuffer = 1,
-      byadgiBuffer = 1,
-      threeFourtyOneBuffer = 1,
-      // no5Buffer = 1,
-      devanurBuffer = 1;
-
-    consolidatedPrices[consolidatedPrices.length - i].forEach(function (
-      val,
-      i
-    ) {
-      // For getting the date
-      if (i == 0) {
-        dataInfo = val;
-      }
-
-      // Teja Logic
-      if (i == 1 || (i > 1 && i < 5)) {
-        tejaIndividual.push(val);
-        tejaBuffer++;
-      }
-
-      if (tejaBuffer == 5) {
-        tejaIndividual.unshift(dataInfo);
-        tejaObj.unshift(tejaIndividual);
-        tejaBuffer = 1;
-      }
-
-      // Sannam Logic
-      if (i == 5 || (i > 5 && i < 9)) {
-        sannamIndividual.push(val);
-        sannamBuffer++;
-      }
-
-      if (sannamBuffer == 5) {
-        sannamIndividual.unshift(dataInfo);
-        sannamObj.unshift(sannamIndividual);
-        sannamBuffer = 1;
-      }
-
-      // Byadgi Logic
-      if (i == 9 || (i > 9 && i < 13)) {
-        byadgiIndividual.push(val);
-        byadgiBuffer++;
-      }
-
-      if (byadgiBuffer == 5) {
-        byadgiIndividual.unshift(dataInfo);
-        byadgiObj.unshift(byadgiIndividual);
-        byadgiBuffer = 1;
-      }
-
-      // 341 Logic
-      if (i == 13 || (i > 13 && i < 17)) {
-        threeFourtyOneIndividual.push(val);
-        threeFourtyOneBuffer++;
-      }
-
-      if (threeFourtyOneBuffer == 5) {
-        threeFourtyOneIndividual.unshift(dataInfo);
-        threeFourtyOneobj.unshift(threeFourtyOneIndividual);
-        threeFourtyOneBuffer = 1;
-      }
-
-      // No 5 Logic
-      // if (i == 17 || (i > 17 && i < 21)) {
-      //   no5Individual.push(val);
-      //   no5Buffer++;
-      // }
-
-      // if (no5Buffer == 5) {
-      //   no5Individual.unshift(dataInfo);
-      //   no5Obj.unshift(no5Individual);
-      //   no5Buffer = 1;
-      // }
-
-      // Devanur Logic
-      if (i == 17 || (i > 17 && i < 21)) {
-        devanurIndividual.push(val);
-        devanurBuffer++;
-      }
-
-      if (devanurBuffer == 5) {
-        devanurIndividual.unshift(dataInfo);
-        devanurObj.unshift(devanurIndividual);
-        devanurBuffer = 1;
-      }
-    });
-  }
-
-  if (inputGraphKey) {
-    if (inputGraphKey === 'sannam') {
-      drawChart(sannamObj, '334 S4/Sannam', 'sannam_graph', inputGraphKey);
-    }
-    if (inputGraphKey === 'teja') {
-      drawChart(tejaObj, 'Teja S17', 'teja_graph', inputGraphKey);
-    }
-    if (inputGraphKey === 'byadgi') {
-      drawChart(byadgiObj, 'Byadgi', 'byadgi_graph', inputGraphKey);
-    }
-    if (inputGraphKey === '341') {
-      drawChart(threeFourtyOneobj, '341', '341_graph', inputGraphKey);
-    }
-    // if (inputGraphKey === 'no5') {
-    //   drawChart(no5Obj, 'No 5', 'no5_graph', inputGraphKey);
-    // }
-    if (inputGraphKey === 'dd') {
-      drawChart(devanurObj, 'Devanur Deluxe DD', 'denvar', inputGraphKey);
-    }
-  } else {
-    initializeChart();
-  }
-}
-
-function makeApiCallForCharts(val) {
-  var rows = val ? val : rowsToDisplay;
-  var params = {
-    spreadsheetId: '1dwhlEIQ_H0NcAIT-SSg1sM_ZpsT2KZNUvc2fqWI9lYU',
-    API_KEY: 'AIzaSyBshQgbcousVir0__rUic0Bj1Ei6XYuKrE',
-    majorDimension: 'ROWS',
-    range: 'Consolidated Prices',
-  };
-
-  var request =
-    fetch(`https://content-sheets.googleapis.com/v4/spreadsheets/${params.spreadsheetId}/values:batchGet?ranges=Consolidated%20Prices&majorDimension=${params.majorDimension}&key=${params.API_KEY}
-  `);
-  request
-    .then(function (response) {
-      return response.json();
-    })
-    .then(
-      function (response) {
-        rootArrayForCharts = response.valueRanges[0].values;
-        prepareChartInfo();
-      },
-      function (reason) {
-        console.error('error: ' + reason.error.message);
-      }
-    );
-}
-
-function updateDailyArrivalsIndividualFieldsStemBasis(fields) {
-  var dateArray = fields[0].slice();
-
-  var index = dateArray.length - 1;
-
-  var table = document.getElementById('dailyRatesTable1');
-
-  document.getElementById(
-    'dateOfFlow1'
-  ).innerHTML = `Our Offer prices on Date: ${dateArray[index]}`;
-
-  var tailoredData = fields.slice();
-
-  if (index) {
-    var cellBuffer = 1;
-    var rowBuffer = 1;
-
-    tailoredData.forEach((value, i) => {
-      if (i == 0) {
-        return;
-      }
-
-      value.forEach((val, i) => {
-        if (rowBuffer == 9) {
-          rowBuffer = 1;
-          cellBuffer++;
-        }
-        if (i == index) {
-          table.rows[rowBuffer].cells[cellBuffer].innerHTML = val;
-          rowBuffer++;
-        }
-      });
-    });
-  }
-}
-
-function convertDate(date) {
-  var date = new Date(date);
-  console.log(date.getMonth());
-
-  var months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  return `${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`;
-}
-
-function updateDailyArrivalsIndividualFieldsForFatki(fields) {
-  console.log(fields);
-  var dateArray = fields[0].slice();
-
-  var index = dateArray.length - 1;
-
-  document.getElementById(
-    'dateForFatkiTable'
-  ).innerHTML = `<h4 style="font-size: 1.2rem">Fatki Table Prices per quintal on Date: ${convertDate(
-    dateArray[index]
-  )}</h4>`;
-
-  var table = document.getElementById('dailyRatesForFatkiTable');
-  if (index) {
-    var cellBuffer = 1;
-    var rowBuffer = 1;
-
-    var tailoredData = fields.slice();
-
-    tailoredData.forEach((value, i) => {
-      if (i == 0) {
-        return;
-      }
-
-      value.forEach((val, i) => {
-        if (rowBuffer == 3) {
-          rowBuffer = 1;
-          cellBuffer++;
-        }
-        if (i == index) {
-          table.rows[rowBuffer].cells[cellBuffer].innerHTML = val;
-          rowBuffer++;
-        }
-      });
-    });
-  }
-}
-
-function updateDailyArrivalsIndividualFields(fields) {
-  var dateArray = fields[0].slice();
-
-  var index = dateArray.length - 1;
-
-  document.getElementById(
-    'dateOfFlow'
-  ).innerHTML = `<h4>Farmer Prices per quintal on Date: ${convertDate(
-    dateArray[index]
-  )}</h4>`;
-  // convertDate(dateArray[index]);
-  var table = document.getElementById('dailyRatesTable');
-  if (index) {
-    var cellBuffer = 1;
-    var rowBuffer = 1;
-
-    var tailoredData = fields.slice();
-
-    tailoredData.forEach((value, i) => {
-      if (i == 0) {
-        return;
-      }
-
-      value.forEach((val, i) => {
-        if (rowBuffer == 5) {
-          rowBuffer = 1;
-          cellBuffer++;
-        }
-        if (i == index) {
-          table.rows[rowBuffer].cells[cellBuffer].innerHTML = val;
-          rowBuffer++;
-        }
-      });
-    });
-  }
-}
-
-function updateDailyInFlow(fields) {
-  var dateArray = fields[0];
-
-  var index = dateArray.length - 1;
-
-  var table = document.getElementById('OverAllInFlow');
-  if (index) {
-    var rowBuffer = 0;
-    fields.forEach((value, i) => {
-      value.forEach((val, i) => {
-        if (i == index) {
-          table.rows[rowBuffer].cells[1].innerHTML = val;
-          rowBuffer++;
-        }
-      });
-    });
-  }
-}
-
-function initializeChart() {
-  google.charts.load('current', { packages: ['corechart'] });
-  google.charts.setOnLoadCallback(drawCharts);
-}
-
-function getModifiedArray(fields) {
-  var values = fields;
-
-  var modifiedArray = [];
-  modifiedArray.push(['Date', 'Medium', 'Medium Best', 'Best', 'Deluxe']);
-
-  var arr = [];
-
-  values.forEach(function (value, index) {
-    var arr = [];
-    value.forEach(function (val, i) {
-      if (i == 0) {
-        arr.push(val);
-        return;
-      }
-      arr.push(parseInt(val));
-    });
-    modifiedArray.push(arr);
-  });
-
-  return modifiedArray;
-}
-
-function drawCharts() {
-  drawChart(sannamObj, '334 S4/Sannam', 'sannam_graph');
-  drawChart(tejaObj, 'Teja S17', 'teja_graph');
-  drawChart(byadgiObj, 'Byadgi', 'byadgi_graph');
-  drawChart(threeFourtyOneobj, '341', '341_graph');
-  // drawChart(no5Obj, 'No 5', 'no5_graph');
-  drawChart(devanurObj, 'Devanur Deluxe DD', 'denvar');
-}
-
-function drawChart(fields, title, id, objectToModify) {
-  // Create the data table.
-  var slicedField = fields.slice();
-  var getUpdatedInfo = getModifiedArray(slicedField);
-  var data = google.visualization.arrayToDataTable(getUpdatedInfo);
-
-  var options = {
-    title: title + ' Dried Red Chilli Farmer Live Rates',
-    legend: {
-      position: 'bottom',
-    },
-    backgroundColor: '#f3f3f3',
-    width: '800',
-    height: '450',
-    vAxis: {
-      ticks: [
-        7500, 10000, 12500, 15000, 17500, 20000, 22500, 25000, 27500, 30000,
-      ],
-    },
-    lineSmoothing: false,
-    focusTarget: 'category',
-  };
-
-  var chart = new google.visualization.LineChart(document.getElementById(id));
-  chart.draw(data, options);
-
-  if (objectToModify) {
-    if (objectToModify === 'sannam') sannamObj = [];
-    if (objectToModify === 'teja') tejaObj = [];
-    if (objectToModify === '341') threeFourtyOneobj = [];
-    // if (objectToModify === 'no5') no5Obj = [];
-    if (objectToModify === 'byadgi') byadgiObj = [];
-    if (objectToModify === 'dd') devanurObj = [];
-  } else {
-    setTimeout(function () {
-      sannamObj = [];
-      tejaObj = [];
-      byadgiObj = [];
-      threeFourtyOneobj = [];
-      // no5Obj = [];
-      devanurObj = [];
-    }, 1000);
-  }
-}
-
-function convertUSD(farmerValues) {
-  var farmersArrayConverted = [];
-
-  farmerValues.forEach(function (value, index) {
-    var arr = [];
-
-    if (index == 0) {
-      farmersArrayConverted.push(value);
-      return;
-    }
-
-    value.forEach(function (childValue, childIndex) {
-      if (childIndex == 0) {
-        arr.push(childValue);
-        return;
-      }
-
-      arr.push(Math.ceil(childValue / USDRate));
-    });
-
-    farmersArrayConverted.push(arr);
-  });
-
-  return farmersArrayConverted;
-}
-
-function modifyFarmerTableToUSD(farmerValues) {
-  updateDailyArrivalsIndividualFields(convertUSD(farmerValues));
-}
-
-function modifiedOfferTableToUSD(offerValues) {
-  updateDailyArrivalsIndividualFieldsStemBasis(convertUSD(offerValues));
-}
-
-var farmerClicked = false;
-
-var offerClicked = false;
-
-var currentCurrencyForFarmer = 'INR';
-
-var currentCurrencyForoffer = 'INR';
-
-var farmerButton = document.getElementById('FarmerRateConverterButton');
-
-var offerButton = document.getElementById('OfferRateConverterButton');
-
-var modifyArrayForUSDRates = [];
-function modifyRatesToUSD(incomingBuffer) {
-  var modifiedArray = [];
-  var arrayToBeShipped = [];
-  var rootArrayDummy = rootArray.slice();
-
-  if (!farmerClicked || !offerClicked) {
-    rootArrayDummy.forEach(function (individualArray, i) {
-      var arr = [];
-
-      if (i == 0) {
-        modifiedArray.push(individualArray);
-        return;
-      }
-
-      individualArray.forEach(function (val, childIndex) {
-        if (childIndex == 0) {
-          arr.push(val);
-        } else {
-          arr.push(parseInt(val));
-        }
-      });
-
-      modifiedArray.push(arr);
-    });
-    modifyArrayForUSDRates = modifiedArray.slice();
-  }
-
-  if (incomingBuffer == 'farmer') {
-    if (!farmerClicked || currentCurrencyForFarmer !== 'USD') {
-      modifyFarmerTableToUSD(modifyArrayForUSDRates.slice(0, 25));
-      farmerClicked = true;
-      currentCurrencyForFarmer = 'USD';
-      farmerButton.innerText = 'Convert to INR';
-    } else {
-      updateDailyArrivalsIndividualFields(rootArray.slice(0, 25));
-      currentCurrencyForFarmer = 'INR';
-      farmerButton.innerText = 'Convert to USD';
-    }
-  }
-  if (incomingBuffer == 'offer') {
-    if (!offerClicked || currentCurrencyForoffer !== 'USD') {
-      var tailoredArray = [];
-      tailoredArray = modifyArrayForUSDRates.slice(25, 73);
-      tailoredArray.unshift(modifyArrayForUSDRates[0]);
-      modifiedOfferTableToUSD(tailoredArray.slice());
-      offerClicked = true;
-      currentCurrencyForoffer = 'USD';
-      offerButton.innerText = 'Convert to INR';
-    } else {
-      var tailoredArrayforINR = [];
-      var rootArrayForTemp = rootArray.slice();
-      tailoredArrayforINR = rootArrayForTemp.slice(25, 73);
-      tailoredArrayforINR.unshift(rootArrayForTemp.slice(0, 1)[0]);
-      updateDailyArrivalsIndividualFieldsStemBasis(tailoredArrayforINR);
-      currentCurrencyForoffer = 'INR';
-      offerButton.innerText = 'Convert to USD';
-    }
-  }
-}
-
 // gst image
 function toggleImage() {
   var imageSection = document.getElementById("image-section");
@@ -531,9 +25,6 @@ function toggleImage() {
 }
 
 // blogs
-
-
-
 // Function to generate the blog sections dynamically
 function generateBlogs() {
   const blogContainer = document.getElementById('blog-sections'); // Parent container to hold all blogs
@@ -552,6 +43,7 @@ function generateBlogs() {
               </div>
           </div>
       `;
+      
       // Append the HTML to the container
       blogContainer.innerHTML += blogHTML;
   });
@@ -611,3 +103,192 @@ function displayPrices(prices) {
 
 // Fetch prices when the page loads
 window.onload = fetchDailyPrices;
+//=========
+
+const products = [
+  {
+    title : "Teja S17 Dried Red Chilli",
+    description : "Teja chilli, one of the hottest varieties available, is primarily grown in southern India, near the renowned Guntur Mirchi Market. Known globally as S17 Teja chilli, it is highly sought after by international buyers. Our Teja chillies are offered in stemless, with stem, and powdered forms, making them perfect for soups, stir-fries, stews, and spice blends. Ideal for long-term storage, Teja chilli combines intense heat with exceptional quality.",
+    images: [
+      'assets/images/teja1.jpeg',
+      'assets/images/teja2.jpeg'
+    ],
+    features: [
+            { feature: 'Color', value: 'Deep red with a glossy finish' },
+            { feature: 'Skin', value: 'Thin yet firm, with fewer seeds' },
+            { feature: 'Aroma', value: 'Pungent, earthy fragrance' },
+            { feature: 'Shape', value: 'Pointed tip with medium-length body' },
+            { feature: 'Pungency', value: 'High, ideal for spicing up dishes' },
+            { feature: 'Processing', value: 'Sun-dried' },
+            { feature: 'Capsaicin Percentage', value: '0.589%' },
+            { feature: 'Length', value: '5-7 cm (2-3 inches)' },
+            { feature: 'Heat Level', value: '50,000 to 100,000 SHU' },
+            { feature: 'ASTA Color Value', value: '75-100' },
+            { feature: 'Moisture', value: '8-10%' }
+    ]
+  },
+  {
+    title: "334 S4/Sannam Dried Red Chilli",
+    description: "Guntur Sannam chilli, also known as S4, is renowned for its bright red color and moderate heat, perfect for enhancing both flavor and appearance in dishes. Grown in the rich soils of Andhra Pradesh's Guntur, Khammam, and Prakasam districts, this chilli is globally recognized for its consistent quality. With its thick skin, Guntur Sannam delivers bold flavor whether used as a powder or crushed, making it a top choice for spice blends, curries, and sauces.",
+    images: [
+      "assets/images/334.jpeg",
+      "assets/images/334_2.jpeg"
+    ],
+    features: [
+      { feature: "Color", value: "Deep red with a glossy texture" },
+      { feature: "Skin", value: "Medium-thick" },
+      { feature: "Aroma", value: "Mild, fruity & earthy undertone" },
+      { feature: "Shape", value: "Elongated and slight conical curve" },
+      { feature: "Pungency", value: "Moderate heat" },
+      { feature: "Processing", value: "Traditionally sun-dried" },
+      { feature: "Capsaicin Percentage", value: "0.226" },
+      { feature: "Length", value: "5-8 cm (2-3 inches)" },
+      { feature: "Heat Level", value: "20,000 to 35,000 SH" },
+      { feature: "ASTA Color Value", value: "60-80" },
+      { feature: "Moisture", value: "10-12%" }
+    ]
+  },
+  {
+    title: "Bydgi Dried Red Chilli",
+    description: "Byadgi chilli is a premium variety known for its vibrant red color and mild heat, making it ideal for adding a deep red hue to dishes without intense spiciness. Grown in the fertile regions of Karnataka, Byadgi chillies are popular for making chilli powder, spice blends, and curry pastes. Their smooth texture and natural oils enhance the flavor and color of sauces, gravies, and seasonings. Favored by culinary professionals and home chefs alike, Byadgi chillies are a kitchen essential.Additionally, their color is utilized in the cosmetics industry for nail polish.",
+    images: [
+      "assets/images/bydgi.jpeg",
+      "assets/images/bydgi1.jpg"
+    ],
+    features: [
+      { feature: "Color", value: "Bright red, with a deep, rich hue" },
+      { feature: "Skin", value: "Wrinkled and dry" },
+      { feature: "Shape", value: "Slightly bent with wrinkled skin" },
+      { feature: "Aroma", value: "Sweet aroma & fruity undertone" },
+      { feature: "Pungency", value: "Very mild heat" },
+      { feature: "Processing", value: "Naturally sun-dried" },
+      { feature: "Capsaicin Percentage", value: "0.226%" },
+      { feature: "Length", value: "12-15 cm (5-6 inches)" },
+      { feature: "Heat Level", value: "8,000 to 15,000 SHU" },
+      { feature: "ASTA Color Value", value: "100-160" },
+      { feature: "Moisture", value: "10-12%" }
+    ]
+  },
+  {
+    title: "341 Dried Red Chilli",
+    description: "Guntur 341 chilli is a premium variety known for its bright red color and moderate heat, offering the perfect balance between spice and flavor. Grown in the renowned Guntur region of Andhra Pradesh, this chilli is praised for its consistent quality and rich flavor. Ideal for making powders, spice blends, and curries, Guntur 341 chilli adds vibrant color and aromatic heat to any dish. Popular among international buyers and widely used by masala and red chilli powder manufacturers, it’s a top choice for authentic flavor and color in cooking.",
+    images: [
+      "assets/images/341.png",
+      "assets/images/341-ts.jpeg"
+    ],
+    features: [
+      { feature: "Color", value: "Bright red with a smooth texture" },
+      { feature: "Skin", value: "Thin" },
+      { feature: "Aroma", value: "Mild and earthy" },
+      { feature: "Shape", value: "Long, slender with pointed tip" },
+      { feature: "Pungency", value: "Moderate" },
+      { feature: "Processing", value: "Typically sun-dried" },
+      { feature: "Capsaicin Percentage", value: "0.226%" },
+      { feature: "Length", value: "6-8 cm (2.5-3.5 inches)" },
+      { feature: "Heat Level", value: "30,000 to 50,000 SHU" },
+      { feature: "ASTA Color Value", value: "90-120" },
+      { feature: "Moisture", value: "10-12%" }
+    ]
+  },
+  {
+    title: "No 5 Dried Red Chilli",
+    description: "Guntur No.5 chilli is a premium variety celebrated for its vibrant red color and moderate to high heat, perfect for those who enjoy bold flavors. Grown in the fertile Guntur region of Andhra Pradesh, this chilli is known for its consistent quality and exceptional taste. Ideal for making chilli powder, spice blends, and sauces, Guntur No.5 chilli enhances both flavor and appearance in dishes. Its robust aroma and deep red color make it a favorite among chefs and food enthusiasts worldwide. Choose Guntur No.5 chilli to add a flavorful kick to your cooking, with its dark red color and medium size.",
+    images: [
+      "assets/images/No.5.jpeg",
+      "assets/images/no5.jpeg"
+    ],
+    features: [
+      { feature: "Color", value: "Bright red with a glossy finish" },
+      { feature: "Skin", value: "Smooth, thin, and firm texture" },
+      { feature: "Aroma", value: "Strong, spicy, smoky" },
+      { feature: "Shape", value: "Long, pointed and slender" },
+      { feature: "Pungency", value: "Moderate heat" },
+      { feature: "Processing", value: "Sun-dried for enhanced flavor" },
+      { feature: "Capsaicin Percentage", value: "0.226%" },
+      { feature: "Length", value: "10-15 cm (4-6 inches)" },
+      { feature: "Heat Level", value: "15,000 to 25,000 SHU" },
+      { feature: "ASTA Color Value", value: "80-120" },
+      { feature: "Moisture", value: "10-12%" }
+    ]
+  },
+  {
+    title: "Armoor Dried Red Chilli",
+    description: "The Armoor chilli is known for its deep red color and balanced heat, the Armoor chilli is a premium variety that enhances both the appearance and flavor of your dishes. Sourced from the fertile soils of Armoor, Telangana, this chilli is celebrated for its consistent quality and rich taste. Ideal for creating high-quality chilli powders, spice blends, and sauces, Armoor chillies are a favorite among chefs and culinary enthusiasts. Its vibrant color and moderate heat make it a top choice for those seeking to elevate their culinary creations with both visual appeal and robust flavor.",
+    images: [
+      "assets/images/armoor.jpeg",
+      "assets/images/armoor1.jpg"
+    ],
+    features: [
+      { feature: "Color", value: "Bright red with high color retention" },
+      { feature: "Skin", value: "Smooth, thin skin" },
+      { feature: "Shape", value: "Medium size, curved, pointed tip" },
+      { feature: "Aroma", value: "Spicy & smoky undertone" },
+      { feature: "Pungency", value: "High" },
+      { feature: "Processing", value: "Sun-dried to preserve flavor" },
+      { feature: "Capsaicin Percentage", value: "0.3%" },
+      { feature: "Length", value: "6-9 cm (2.3-3.5 inches)" },
+      { feature: "Heat Level", value: "30,000 to 50,000 SHU" },
+      { feature: "ASTA Color Value", value: "60-80" },
+      { feature: "Moisture", value: "8-10%" }
+    ]
+  },
+  {
+    title: "Devanur Deluxe (DD) Dried Red Chilli",
+    description: "The DD Chilli is a premium variety renowned for its intense heat and vibrant red color, ideal for those who crave bold and spicy flavors. Cultivated in the rich soils of Kurnool, Telangana, and Andhra Pradesh, this chilli is celebrated for its consistent quality and fiery heat. Perfect for spice blends, chilli powders, and hot sauces, the DD Chilli stands out with its dark red, semi-wrinkled appearance and robust flavor. It contains fewer seeds than other varieties and retains its thick, red, and spicy qualities even when crushed, making it a top choice for adding a powerful kick to your dishes.",
+    images: [
+      "assets/images/dd1.jpeg",
+      "assets/images/dd2.jpg"
+    ],
+    features: [
+      { feature: "Color", value: "Dark red" },
+      { feature: "Skin", value: "Thick, slightly wrinkled skin" },
+      { feature: "Shape", value: "Medium-sized, pointed shape" },
+      { feature: "Aroma", value: "Strong with a hint of sweetness" },
+      { feature: "Pungency", value: "Mild to moderate" },
+      { feature: "Processing", value: "Sun-dried" },
+      { feature: "Capsaicin Percentage", value: "0.5%" },
+      { feature: "Length", value: "8-12 cm (3-4.7 inches)" },
+      { feature: "Heat Level", value: "10,000 to 20,000 SHU" },
+      { feature: "ASTA Color Value", value: "80-100" },
+      { feature: "Moisture", value: "10-12%" }
+    ]
+  }
+];
+
+
+let finalProductsHTML=''
+// products section
+function createProductCard(product) {
+  const productContainer = document.getElementById('product-container'); // Parent container for all products
+  
+  const productCardHTML = `
+      <div class="product-info">
+          <h2 class="product-title">${product.title}</h2>
+          <p class="product-description">${product.description}</p>
+      </div>
+
+      <div class="product-card">
+          <div class="product-img">
+              <img src="${product.images[0]}" alt="${product.title}" class="img-responsive">
+          </div>
+          <div class="product-img">
+              <img src="${product.images[1]}" alt="${product.title}" class="img-responsive">
+          </div>
+          <div class="product-img">
+              <ul class="product-features">
+                  ${product.features.map(feature => `<li><strong>${feature.feature}:</strong> ${feature.value}</li>`).join('')}
+              </ul>
+          </div>
+      </div>
+  `;
+
+  // Append the HTML to the container
+  productContainer.innerHTML += productCardHTML;
+}
+
+// console.log(finalProductsHTML)
+// Call the function for each product
+products.forEach(product => createProductCard(product));
+
+
+

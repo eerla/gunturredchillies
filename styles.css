@@ -132,7 +132,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease;
-    z-index: -1000;
+    z-index: 1000;
 }
 
 .ordernow-button:hover {
@@ -511,7 +511,7 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 50px;
@@ -543,14 +543,14 @@ body {
     color: #d21818;
     margin-bottom: 10px;
     text-align: center;
-    width: 90%;
+    width: 100%;
 }
 
 .product-description {
     font-size: 1.5rem;
     color: #666;
     margin-bottom: 10px;
-    width: 90%;
+    width: 100%;
 }
 
 .product-features {
@@ -561,7 +561,7 @@ body {
 
 .product-features li {
     font-size: 0.9rem;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 /* Responsive adjustments */
