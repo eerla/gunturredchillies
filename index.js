@@ -9,6 +9,16 @@ const blogs = [
   },
 ];
 
+function zforms_open_window(url, height, width) {
+  var leftPos = 0;
+  var topPos = 0;
+  if (screen) {
+    leftPos = (screen.width - width) / 2;
+    topPos = (screen.height - height) / 2;
+    window.open(url, null, 'width=' + width + ',height=' + height + ',left=' + leftPos + ',top=' + topPos + ', toolbar=0, location=0, status=1, scrollbars=1, resizable=1');
+  }
+}
+
 // gst image
 function toggleImage() {
   var imageSection = document.getElementById("image-section");
@@ -135,7 +145,7 @@ const products = [
       "assets/images/334_2.jpeg"
     ],
     features: [
-      { feature: "Color", value: "Deep red with a glossy texture" },
+      { feature: "Color", value: "Deep red, glossy texture" },
       { feature: "Skin", value: "Medium-thick" },
       { feature: "Aroma", value: "Mild, fruity & earthy undertone" },
       { feature: "Shape", value: "Elongated and slight conical curve" },
@@ -158,7 +168,7 @@ const products = [
     features: [
       { feature: "Color", value: "Bright red, with a deep, rich hue" },
       { feature: "Skin", value: "Wrinkled and dry" },
-      { feature: "Shape", value: "Slightly bent with wrinkled skin" },
+      { feature: "Shape", value: "Slightly bent, wrinkled skin" },
       { feature: "Aroma", value: "Sweet aroma & fruity undertone" },
       { feature: "Pungency", value: "Very mild heat" },
       { feature: "Processing", value: "Naturally sun-dried" },
@@ -224,7 +234,7 @@ const products = [
       { feature: "Shape", value: "Medium size, curved, pointed tip" },
       { feature: "Aroma", value: "Spicy & smoky undertone" },
       { feature: "Pungency", value: "High" },
-      { feature: "Processing", value: "Sun-dried to preserve flavor" },
+      { feature: "Processing", value: "Sun-dried" },
       { feature: "Capsaicin Percentage", value: "0.3%" },
       { feature: "Length", value: "6-9 cm (2.3-3.5 inches)" },
       { feature: "Heat Level", value: "30,000 to 50,000 SHU" },
@@ -256,11 +266,9 @@ const products = [
 ];
 
 
-let finalProductsHTML=''
 // products section
 function createProductCard(product) {
-  const productContainer = document.getElementById('product-container'); // Parent container for all products
-  
+  const productContainer = document.getElementById('product-box'); // Parent container for all products
   const productCardHTML = `
       <div class="product-info">
           <h2 class="product-title">${product.title}</h2>

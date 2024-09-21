@@ -560,8 +560,8 @@ body {
 }
 
 .product-features li {
-    font-size: 0.9rem;
-    margin-bottom: 2px;
+    font-size: 15px;
+    margin-bottom: 1px;
 }
 
 /* Responsive adjustments */
@@ -1220,6 +1220,16 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .social-btn:hover img, .email-btn:hover img, .whatsapp-btn:hover img {
     transform: scale(1.1);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-btn:focus,
+.whatsapp-btn:active,
+.email-btn:focus,
+.email-btn:active,
+.social-btn:focus,
+.social-btn:active {
+    outline: none; /* Remove outline on focus and active states */
+    box-shadow: none; /* Ensure no box shadow appears either */
 }
 
 .gradient-text {
