@@ -1453,6 +1453,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .prices-table td {
     padding: 3px 5px;
     text-align: left;
+    size: 100px;
 }
 
 /* Styling the first column */
@@ -1552,4 +1553,120 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .hidden-iframe {
     display: none;
     visibility: hidden;
+}
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices - width up to 600px) */
+@media (max-width: 600px) {
+    .banner-content h2 {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+    
+    .b-container p {
+        font-size: 0.9rem; /* Slightly smaller paragraph text */
+        line-height: 1.4;  /* Tighter line spacing on small screens */
+    }
+
+    .banner-container {
+        padding: 10px; /* Reduce padding for small screens */
+    }
+
+    .blog-section {
+        margin: 10px 0; /* Reduce margin between sections */
+        box-shadow: none; /* Remove shadow to save space */
+    }
+
+    .arrow-up {
+        width: 8px; /* Slightly smaller arrow */
+        height: 8px;
+    }
+}
+
+/* Medium screens (tablets - width between 600px and 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    .banner-content h2 {
+        font-size: 1.3rem; /* Slightly smaller than on large screens */
+    }
+
+    .b-container p {
+        font-size: 0.95rem; /* Slightly smaller text */
+    }
+
+    .banner-container {
+        padding: 12px; /* Adjust padding for medium screens */
+    }
+
+    .blog-section {
+        margin: 15px 0; /* Adjust margin between sections */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Softer shadow for medium screens */
+    }
+}
+
+/* Extra small screens (small phones - width below 400px) */
+@media (max-width: 400px) {
+    .banner-content h2 {
+        font-size: 1rem; /* Smaller heading for extra small screens */
+    }
+
+    .b-container p {
+        font-size: 0.85rem; /* Smaller paragraph text */
+    }
+
+    .banner-container {
+        padding: 4px; /* Further reduce padding */
+    }
+
+    .blog-section {
+        margin: 4px 0; /* Less margin between blog sections */
+        padding-top: 0px;
+    }
+
+    .arrow-up {
+        width: 7px; /* Smaller arrow for extra small screens */
+        height: 7px;
+    }
+}
+
+
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices - width up to 600px) */
+@media (max-width: 600px) {
+    .b-heading {
+        padding: 8px; /* Reduce padding for mobile devices */
+    }
+
+    .b-heading h3 {
+        font-size: 1.5rem; /* Smaller heading font size */
+        letter-spacing: 0.5px; /* Reduce letter spacing */
+        margin-top: 15px; /* Slightly smaller margin */
+    }
+}
+
+/* Medium screens (tablets - width between 600px and 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+    .b-heading {
+        padding: 9px; /* Adjust padding for medium screens */
+    }
+
+    .b-heading h3 {
+        font-size: 1.75rem; /* Slightly smaller heading */
+        letter-spacing: 0.8px; /* Adjust letter spacing */
+        margin-top: 18px; /* Adjust top margin */
+    }
+}
+
+/* Extra small screens (small phones - width below 400px) */
+@media (max-width: 400px) {
+    .b-heading {
+        padding: 5px; /* Reduce padding further for small screens */
+    }
+
+    .b-heading h3 {
+        font-size: 1.2rem; /* Further reduce heading size */
+        letter-spacing: 0.4px; /* Reduce letter spacing further */
+        margin-top: 12px; /* Adjust top margin for extra small screens */
+    }
 }
