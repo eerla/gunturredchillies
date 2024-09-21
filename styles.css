@@ -119,6 +119,31 @@ body {
     } */
 }
 
+.ordernow-button {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff; /* WhatsApp Brand Color */
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: -1000;
+}
+
+.ordernow-button:hover {
+    transform: scale(1.2);
+    transform-origin: center;
+}
+
+.ordernow-button img {
+    width: 40px;
+    height: 40px;
+}
 
  /* WhatsApp Button Styling */
  .whatsapp-button {

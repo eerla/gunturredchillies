@@ -21,60 +21,6 @@ var USDRate = 0;
 var rootArray = [];
 var rootArrayForCharts = [];
 
-function getUSDRate() {
-  var params = {
-    API_KEY: 'fxr_live_2335f3878929258fedb78444f3f3145d5a76'
-  };
-
-  var request = fetch(
-    `https://api.fxratesapi.com/latest?base=USD&currencies=INR&resolution=1m&amount=1&places=2&format=json&api_key=${params.API_KEY}`
-  );
-
-  request
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (responseJson) {
-      USDRate = responseJson.rates.INR;
-    });
-}
-
-getUSDRate();
-
-// function makeApiCall() {
-//   var params = {
-//     spreadsheetId: '1dwhlEIQ_H0NcAIT-SSg1sM_ZpsT2KZNUvc2fqWI9lYU',
-//     API_KEY: 'AIzaSyBshQgbcousVir0__rUic0Bj1Ei6XYuKrE',
-//     majorDimension: 'COLUMNS',
-//   };
-
-//   var request =
-//     fetch(`https://content-sheets.googleapis.com/v4/spreadsheets/${params.spreadsheetId}/values:batchGet?ranges=Daily%20Snapshot&ranges=Consolidated%20Prices&ranges=Fatki%20Table&majorDimension=${params.majorDimension}&key=${params.API_KEY}
-//   `);
-//   request
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(
-//       function (response) {
-//         rootArray = response.valueRanges[1].values.slice();
-//         var tailoredArray = [];
-//         tailoredArray = response.valueRanges[1].values.slice(25, 73);
-//         tailoredArray.unshift(response.valueRanges[1].values[0]);
-//         updateDailyInFlow(response.valueRanges[0].values);
-//         updateDailyArrivalsIndividualFields(
-//           response.valueRanges[1].values.slice(0, 29)
-//         );
-//         updateDailyArrivalsIndividualFieldsForFatki(
-//           response.valueRanges[2].values.slice(0, 7)
-//         );
-//       },
-//       function (reason) {
-//         console.error('error: ' + reason.error.message);
-//       }
-//     );
-// }
-
 function prepareChartInfo(rowsInput, inputGraphKey, fromHtml) {
   var rows = rowsInput ? rowsInput : rowsToDisplay;
   var consolidatedPrices = [];
