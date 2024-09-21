@@ -54,14 +54,15 @@ function generateBlogs() {
           </div>
       `;
       
+    if (blogContainer) {
       // Append the HTML to the container
       blogContainer.innerHTML += blogHTML;
+    }
   });
 }
 
 // Call the function to generate the blogs on page load
 document.addEventListener('DOMContentLoaded', generateBlogs);
-
 
 
 function toggleBlogPost(element) {
@@ -108,7 +109,11 @@ function displayPrices(prices) {
   });
 
   html += '</tbody></table>';
-  pricesContainer.innerHTML = html;
+  
+  if (pricesContainer) {
+    // Append the HTML to the container
+      pricesContainer.innerHTML = html;
+    }
 }
 
 // Fetch prices when the page loads
@@ -265,7 +270,6 @@ const products = [
   }
 ];
 
-
 // products section
 function createProductCard(product) {
   const productContainer = document.getElementById('product-box'); // Parent container for all products
@@ -290,13 +294,42 @@ function createProductCard(product) {
       </div>
   `;
 
+  if (productContainer) {
   // Append the HTML to the container
-  productContainer.innerHTML += productCardHTML;
+    productContainer.innerHTML += productCardHTML;
+  }
 }
 
-// console.log(finalProductsHTML)
 // Call the function for each product
-products.forEach(product => createProductCard(product));
+function createProductPageContent() {
+  if (window.location.pathname.includes('products')) {
+      // Call the function related to the product page
+      products.forEach(product => createProductCard(product));
+  }
+}
+createProductPageContent();
 
+// google translate
+document.addEventListener("DOMContentLoaded", function () {
 
+  // Dynamically load Google Translate script
+  function loadGoogleTranslateScript() {
+      let script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(script);
+  }
 
+  // Load the Google Translate script after the page loads
+  loadGoogleTranslateScript();
+});
+
+// Define the googleTranslateElementInit function globally so that the API can access it
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'te,hi,kn,ta,ml,es',  // Telugu, Hindi, Kannada, Tamil, Malayalam, Spanish
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+  }, 'google_translate_element');
+}
