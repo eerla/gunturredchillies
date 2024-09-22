@@ -279,6 +279,12 @@ body {
     }
 }
 
+@media (max-width: 400px) {
+    .badges-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 card in a row */
+    }
+}
+
 .badges-row {
     display: flex;
     flex-wrap: nowrap;
@@ -298,6 +304,21 @@ body {
     min-width: 250px; */
 }
 
+/* Card Title Styling */
+.card h5 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Card Text Styling */
+.card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
@@ -313,20 +334,7 @@ body {
     color: #E57373;
 }
 
-/* Card Title Styling */
-.card h5 {
-    color: #333;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
 
-/* Card Text Styling */
-.card p {
-    color: #666;
-    font-size: 1rem;
-    line-height: 1.6;
-}
 
 @media (max-width: 403px) {
     .intro-content .centered-heading h1 {
@@ -345,9 +353,61 @@ body {
         margin-top: 20px;
         color: #d21414;
     }
+
+    .card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* position: relative;
+        flex: 1;
+        min-width: 250px; */
+    }
+    
+    /* Card Title Styling */
+    .card h5 {
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    
+    /* Card Text Styling */
+    .card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+    .intro-content .intro-text span {
+        font-size: 25px; /* Reduce font size for readability on smaller screens */
+        line-height: 1.5; /* Line spacing for better readability */
+        margin: 15px 0; /* Add margin for spacing between paragraphs */
+    }
+
+    .n-btn {
+        font-size: 0.9rem;
+        padding: 8px 5px;
+        border-radius: 8px; /* More rounded corners */
+        text-decoration: none;
+        color: #fff;
+        display: inline-block; /* Better alignment and spacing */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        text-align: center;
+    
+    }
 }
 
 @media (max-width: 768px) {
+
+    .intro-content .intro-text span {
+        font-size: 25px; /* Reduce font size for readability on smaller screens */
+        line-height: 1.5; /* Line spacing for better readability */
+        margin: 15px 0; /* Add margin for spacing between paragraphs */
+    }
 
     /* Heading styling */
     .intro-content .centered-heading h1 {
@@ -1042,7 +1102,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
     }
 
     .n-media-container {
-        background: url('assets/images/logo-d3.png') no-repeat center center; 
+        background: url('images/logo-d3.png') no-repeat center center; 
         background-size: contain; 
         padding: 10px 0; 
         color: #333;
@@ -1052,7 +1112,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 }
 
 .n-media-container {
-    background: url('assets/images/logo-d3.png') no-repeat center center; 
+    background: url('images/logo-d3.png') no-repeat center center; 
     background-size: contain; 
     padding: 10px 0; 
     color: #333;
@@ -1453,7 +1513,6 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .prices-table td {
     padding: 3px 5px;
     text-align: left;
-    size: 100px;
 }
 
 /* Styling the first column */
@@ -1606,7 +1665,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
 /* Extra small screens (small phones - width below 400px) */
 @media (max-width: 400px) {
     .banner-content h2 {
-        font-size: 1rem; /* Smaller heading for extra small screens */
+        font-size: 12px; /* Smaller heading for extra small screens */
     }
 
     .b-container p {
@@ -1623,8 +1682,23 @@ outline: none; /* Ensures there's no outline when the element is focused */
     }
 
     .arrow-up {
-        width: 7px; /* Smaller arrow for extra small screens */
-        height: 7px;
+        width: 2px; /* Smaller arrow for extra small screens */
+        height: 2px;
+    }
+
+    .prices-table th {
+        background-color: #d21414;
+        color: white;
+        padding: 3px 3px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1rem;
+        border-bottom: 4px solid #b10e0e; /* Add bottom border to header */
+    }
+
+    .prices-table td {
+        padding: 2px 3px;
+        text-align: left;
     }
 }
 
@@ -1669,4 +1743,39 @@ outline: none; /* Ensures there's no outline when the element is focused */
         letter-spacing: 0.4px; /* Reduce letter spacing further */
         margin-top: 12px; /* Adjust top margin for extra small screens */
     }
+
+    .b-heading h1 {
+        font-size: 1.5rem; /* Further reduce heading size */
+        letter-spacing: 0.4px; /* Reduce letter spacing further */
+        margin-top: 12px; /* Adjust top margin for extra small screens */
+    }
+}
+
+/* Blog Button Styling */
+.blog-button {
+    position: fixed; /* Fixes the button in a specific place relative to the viewport */
+    top: 50px; /* Distance from the top of the screen */
+    right: 15px; /* Distance from the right side of the screen */
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    z-index: 999; /* Ensures the button stays on top of other content */
+}
+
+.blog-button:hover {
+    background-color: #d63333;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.translate {
+    position: fixed; /* Fixes the button in a specific place relative to the viewport */
+    top: 10px; /* Distance from the top of the screen */
+    right: 10px; /* Distance from the right side of the screen */
 }

@@ -7,6 +7,10 @@ const blogs = [
       title: "5 Tips for Drying Red Chillies at Home",
       description: "Drying chillies at home is easy with these 5 tips: air dry, use a dehydrator, sun dry, oven dry, and microwave dry. Each method ensures long-lasting flavor and quality."
   },
+  {
+    title: "Did you know this about red dry chillies?",
+    description: "Here are five must-know facts about red dried chillies: <strong>1. **High in Vitamin C**:</strong> Red dried chillies are packed with Vitamin C, even more than citrus fruits like oranges. They help boost the immune system and promote healthy skin. <strong>2. **Capsaicin Power**:</strong> The heat of red chillies comes from a compound called capsaicin. This compound not only adds spice but also has anti-inflammatory and pain-relief properties, making it popular in creams for sore muscles.   <strong>3. **Natural Preservative**:</strong> Due to their antimicrobial properties, dried red chillies act as a natural preservative. They prevent bacterial growth in foods, which is why they’re commonly used in pickles and spice blends. <strong>4. **Different Varieties, Different Heat Levels**:</strong> Not all red chillies are equally hot. Varieties like the Teja S17 are much hotter than others like the Kashmiri chilli, which is milder and used more for color than heat. <strong>5. **Boosts Metabolism**:</strong> Capsaicin in red chillies is known to increase metabolic rate, which can aid in fat burning and weight loss. It’s why spicy food often leaves you sweating – your body is burning more energy!"
+  }
 ];
 
 function zforms_open_window(url, height, width) {
@@ -87,13 +91,35 @@ const API_KEY = 'AIzaSyDTNXpn-TFWhInawEkrm94tp7wSVDIG9T0';
 const SPREADSHEET_ID = '1ntdLZUDLOj8cAfd6vessJ8-ENsbOBu05KuVtiELkq0Y';
 const RANGE = 'chilli_prices!A1:C18'; // Adjust this range based on your data structure
 
-// Function to fetch data from Google Sheets
 async function fetchDailyPrices() {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    
-    displayPrices(data.values);
+  const cacheKey = 'cachedDailyPrices';
+  const cacheTimeKey = 'cacheTime';
+  const cacheDuration = 10000 * 60 * 1000; // Cache for 1 week
+
+  // Check if cached data exists and is still valid
+  const cachedPrices = localStorage.getItem(cacheKey);
+  const cachedTime = localStorage.getItem(cacheTimeKey);
+  
+  if (cachedPrices && cachedTime && (Date.now() - cachedTime < cacheDuration)) {
+      // If valid cache is available, use it
+      displayPrices(JSON.parse(cachedPrices));
+  } else {
+      // Fetch new prices from Google Sheets API
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+      
+      try {
+          const response = await fetch(url);
+          const data = await response.json();
+
+          // Cache the fetched prices and the current time
+          localStorage.setItem(cacheKey, JSON.stringify(data.values));
+          localStorage.setItem(cacheTimeKey, Date.now());
+
+          displayPrices(data.values);
+      } catch (error) {
+          console.error('Error fetching prices:', error);
+      }
+  }
 }
 
 // Function to display prices on the webpage
@@ -111,13 +137,10 @@ function displayPrices(prices) {
   html += '</tbody></table>';
   
   if (pricesContainer) {
-    // Append the HTML to the container
+      // Append the HTML to the container
       pricesContainer.innerHTML = html;
-    }
+  }
 }
-
-// Fetch prices when the page loads
-window.onload = fetchDailyPrices;
 //=========
 
 const products = [
@@ -333,3 +356,72 @@ function googleTranslateElementInit() {
       autoDisplay: false
   }, 'google_translate_element');
 }
+
+// Step 1: Define the badge data
+const badgesData = [
+  {
+      icon: 'workspace_premium',
+      title: 'Best Quality',
+      description: 'Our premium red chillies are carefully selected to ensure the highest quality, delivering exceptional taste and strength. We guarantee great flavor in every batch.'
+  },
+  {
+      icon: 'hub',
+      title: 'Reliable Bulk Supplier',
+      description: 'We consistently deliver high-quality red chillies and chilli powder in large quantities with reliable service. Our products are sourced directly from farmers at Guntur Mirchi Market Yard.'
+  },
+  {
+      icon: 'currency_rupee_circle',
+      title: 'Competitive Pricing',
+      description: 'Get the best and lowest prices on high-quality red dry chillies. Enjoy exceptional value with our competitive pricing, without compromising on quality.'
+  },
+  {
+      icon: 'monitoring',
+      title: 'Daily Price Updates',
+      description: 'We track dry chilli market prices daily, so you can stay informed with the latest live prices and updates from the Guntur Market Yard and always get the best deal.'
+  },
+  {
+      icon: 'enterprise',
+      title: 'Retail & Wholesale',
+      description: 'Managed by Devika Exim and supported by Parvathi Chillies, our legacy of excellence in trading and exporting is your assurance of premium quality.'
+  },
+  {
+      icon: 'bookmark_heart',
+      title: 'Trusted & Reputable',
+      description: 'Managed by Devika Exim and supported by Parvathi Chillies, our legacy of excellence in trading and exporting is your assurance of premium quality.'
+  }
+];
+
+// Step 2: Create the function to generate badges
+function generateBadges() {
+  const badgesContainer = document.getElementById('badgesContainer');
+  badgesData.forEach(badge => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const iconBlock = document.createElement('div');
+      iconBlock.className = 'icon-block';
+      const icon = document.createElement('span');
+      icon.className = 'material-symbols-outlined';
+      icon.textContent = badge.icon;
+      iconBlock.appendChild(icon);
+
+      const title = document.createElement('h5');
+      title.textContent = badge.title;
+
+      const description = document.createElement('p');
+      description.textContent = badge.description;
+
+      card.appendChild(iconBlock);
+      card.appendChild(title);
+      card.appendChild(description);
+      
+      if (badgesContainer) {
+        badgesContainer.appendChild(card);
+      }
+    });
+}
+
+// Step 3: Call the function to generate badges on page load
+window.onload = generateBadges;
+// Fetch prices when the page loads
+window.onload = fetchDailyPrices;
