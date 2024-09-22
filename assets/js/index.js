@@ -392,6 +392,7 @@ const badgesData = [
 ];
 
 // Step 2: Create the function to generate badges
+
 function generateBadges() {
   const badgesContainer = document.getElementById('badgesContainer');
   badgesData.forEach(badge => {
@@ -414,7 +415,6 @@ function generateBadges() {
       card.appendChild(iconBlock);
       card.appendChild(title);
       card.appendChild(description);
-      
       if (badgesContainer) {
         badgesContainer.appendChild(card);
       }
@@ -422,6 +422,6 @@ function generateBadges() {
 }
 
 // Step 3: Call the function to generate badges on page load
-window.onload = generateBadges;
+window.addEventListener('load', generateBadges);
 // Fetch prices when the page loads
 window.onload = fetchDailyPrices;

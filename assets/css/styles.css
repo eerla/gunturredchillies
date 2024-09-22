@@ -539,6 +539,7 @@ body {
         text-align: center;
         padding: 10px;
     }
+
 }
 
 
@@ -1471,6 +1472,10 @@ outline: none; /* Ensures there's no outline when the element is focused */
     .image-container img {
         width: 100%; /* Ensure image scales for smaller screens */
     }
+
+    .blog-button {
+        display: none;
+    }
 }
 
 /*our blog*/
@@ -1660,6 +1665,10 @@ outline: none; /* Ensures there's no outline when the element is focused */
         margin: 15px 0; /* Adjust margin between sections */
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Softer shadow for medium screens */
     }
+    .blog-button {
+        display: none;
+    }
+
 }
 
 /* Extra small screens (small phones - width below 400px) */
@@ -1700,6 +1709,20 @@ outline: none; /* Ensures there's no outline when the element is focused */
         padding: 2px 3px;
         text-align: left;
     }
+
+    .n-btn {
+        font-size: 1rem;
+        padding: 6px 8px;
+        border-radius: 8px; /* More rounded corners */
+        text-decoration: none;
+        color: #fff;
+        display: inline-block; /* Better alignment and spacing */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+        text-align: center;
+    
+    }
+    
 }
 
 
@@ -1716,6 +1739,9 @@ outline: none; /* Ensures there's no outline when the element is focused */
         font-size: 1.5rem; /* Smaller heading font size */
         letter-spacing: 0.5px; /* Reduce letter spacing */
         margin-top: 15px; /* Slightly smaller margin */
+    }
+    .blog-button {
+        display: none;
     }
 }
 
@@ -1748,6 +1774,36 @@ outline: none; /* Ensures there's no outline when the element is focused */
         font-size: 1.5rem; /* Further reduce heading size */
         letter-spacing: 0.4px; /* Reduce letter spacing further */
         margin-top: 12px; /* Adjust top margin for extra small screens */
+    }
+
+    .blog-button {
+        display: none;
+    }
+
+    .whychooseus {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ff6b6b; /* Use the red color */
+        text-align: center; /* Center align the text */
+        margin: 10px; /* Center the element horizontally with auto margins */
+        padding: 15px 20px; /* Add padding for better spacing */
+        letter-spacing: 1px; /* Adjust letter spacing */
+        text-transform: uppercase; /* Capitalize the text for emphasis */
+        position: relative; /* Required for the pseudo-elements */
+        display: block; /* Make it a block-level element to take full width */
+        background: transparent; /* Transparent to see background image */
+        border-radius: 12px; /* Slightly rounded corners */
+        transition: all 0.3s ease; /* Smooth hover effect */
+        width: fit-content; /* Ensure width adjusts based on content */
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+      
+        /* Create a subtle shadow effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+        /* Add a gradient border */
+        /* background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 107, 107, 0.15) 100%); */
+        /* background-clip: padding-box; */
     }
 }
 
