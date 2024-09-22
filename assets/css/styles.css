@@ -464,9 +464,6 @@ html, body {
     height: 20vh; /* Adjust to the desired height */
     text-align: center;
     padding: 10px; /* Optional: Add padding for responsiveness */
-    /* text-align: center; */
-    /* justify-content: center; */
-    /* align-items: center; */
 }
 
 
@@ -474,7 +471,7 @@ html, body {
     font-size: 4rem;
     font-weight: 900;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     text-transform: uppercase;
     letter-spacing: 2px;
     line-height: 1.2;
@@ -493,7 +490,9 @@ html, body {
 
 .centered-heading h1 .underline {
     /* position: fixed; */
-    bottom: 0px;
+    bottom: 10px;
+    margin-bottom: 25px;
+    margin-top: 15px;
     left: 0;
     width: 100%;
     height: 5px;
@@ -576,7 +575,7 @@ html, body {
 }
 
 .intro-text p {
-    font-size: 25px;
+    font-size: 20px;
     color: #666;
     line-height: 1.6;
 }
@@ -1097,15 +1096,11 @@ outline: none; /* Ensures there's no outline when the element is focused */
     }
 }
 
-
-
-  
-  
 /* Desktop View - Default Styles */
 .main-content {
-    margin-left: 250px; /* Leaves space for the sidebar */
+    margin-left: 150px; /* Leaves space for the sidebar */
     /* padding: 20px; */
-    width: calc(100% - 250px); /* Main content takes up the remaining space */
+    width: calc(100% - 150px); /* Main content takes up the remaining space */
     transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition */
     min-height: 100vh; /* Ensure the main content fills at least the viewport height */
     display: flex;
@@ -1127,7 +1122,6 @@ outline: none; /* Ensures there's no outline when the element is focused */
     .n-media-container {
         background: url('images/logo-d3.png') no-repeat center center; 
         background-size: contain; 
-        padding: 10px 0; 
         color: #333;
         margin-top: 30px;
     }
@@ -1137,7 +1131,6 @@ outline: none; /* Ensures there's no outline when the element is focused */
 .n-media-container {
     background: url('images/logo-d3.png') no-repeat center center; 
     background-size: contain; 
-    padding: 10px 0; 
     color: #333;
     width: 100%;
 }
@@ -1834,7 +1827,7 @@ outline: none; /* Ensures there's no outline when the element is focused */
     position: fixed; /* Fixes the button in a specific place relative to the viewport */
     top: 50px; /* Distance from the top of the screen */
     right: 15px; /* Distance from the right side of the screen */
-    background-color: #ff4d4d;
+    background-color: #d63333;
     color: white;
     padding: 15px 25px;
     font-size: 1.2rem;
