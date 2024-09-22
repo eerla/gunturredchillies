@@ -603,14 +603,13 @@ html, body {
 .product-card {
     display: flex;
     background-color: #fff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     width: 100%;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     margin-top: 15px;
-    
 }
 
 .product-card:hover {
@@ -621,8 +620,8 @@ html, body {
 .product-img img {
     width: 250px;
     height: 300px;
-    margin-right: 20px;
     object-fit: cover;
+    margin: 5px;
 }
 
 /* width: 300px; height: 400px; object-fit: cover; */
@@ -641,7 +640,7 @@ html, body {
 }
 
 .product-description {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #666;
     margin-bottom: 10px;
     width: 100%;
