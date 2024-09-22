@@ -253,36 +253,54 @@ body {
   }
   
   /* Container for the cards */
-.badges-container {
+/* .badges-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust based on the number of cards and screen size */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin: 20px;
-    /* grid-gap: 20px;
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    text-align: center; */
-}
-
-/* For tablet screens (1 or 2 cards per row) */
-@media (max-width: 1024px) {
-    .badges-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
-    }
-}
-
-/* For mobile screens (1 card per row) */
-@media (max-width: 768px) {
-    .badges-container {
-        grid-template-columns: repeat(1, 1fr); /* 1 card in a row */
+} */
+/* Responsive adjustments */
+@media (max-width: 786px) {
+    .card {
+        width: auto; /* Smaller width on mobile */
+        height: 180px; /* Smaller height on mobile */
     }
 }
 
 @media (max-width: 400px) {
-    .badges-container {
-        grid-template-columns: repeat(1, 1fr); /* 1 card in a row */
+    .card {
+        width: auto; /* Compact width for very small screens */
+        height: 150px; /* Compact height for very small screens */
     }
+}
+
+.badges-container {
+    scrollbar-width: thin;
+    display: flex; 
+    overflow-x: auto; 
+    padding: 10px; 
+    gap: 20px; /* Space between cards */
+    scroll-snap-type: x mandatory; 
+    max-width: 100%; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Optional: Add styles for a better visual experience */
+.badges-container::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+}
+
+.badges-container::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Round scrollbar thumb */
+}
+
+.badges-container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling on the body */
 }
 
 .badges-row {
@@ -291,32 +309,37 @@ body {
     gap: 20px;
 }
 
-/* Card Styling */
 .card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* position: relative;
-    flex: 1;
-    min-width: 250px; */
+    flex: 0 0 calc(50% - 10px); /* Card width */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    background-color: #fff; /* White background */
+    transition: transform 0.2s; /* Smooth transform */
+    scroll-snap-align: start; 
+    padding: 15px; /* Inner padding */
+    height: auto;
 }
+
 
 /* Card Title Styling */
 .card h5 {
     color: #333;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.card:active {
+    cursor: grabbing; /* Change cursor when dragging */
 }
 
 /* Card Text Styling */
 .card p {
     color: #666;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
+    margin: 0;
 }
 
 .card:hover {
