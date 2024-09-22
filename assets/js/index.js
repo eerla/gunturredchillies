@@ -424,4 +424,4 @@ function generateBadges() {
 // Step 3: Call the function to generate badges on page load
 window.addEventListener('load', generateBadges);
 // Fetch prices when the page loads
-window.addEventListener('load', fetchDailyPrices);
+window.onload = fetchDailyPrices;
