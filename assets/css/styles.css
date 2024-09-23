@@ -914,7 +914,7 @@ h2, h3 {
 }
 
 .custom-order-info {
-    font-size: 1.5rem; /* Increased font size for better visibility */
+    font-size: 1.1rem; /* Increased font size for better visibility */
     font-weight: 600; /* Bolder text for prominence */
     line-height: 1.6; /* Improved line height for readability */
     color: #333; /* Darker text color for better contrast */
@@ -927,9 +927,10 @@ h2, h3 {
     margin: 0px auto; /* Centered horizontally */
     text-align: center; /* Centered text */
     display: block;
-    padding: 5px; /* More whitespace */
+    padding-left: 100px; /* More whitespace */
+    padding-right: 50px;
     background-clip: padding-box; /* Background doesn’t overlap the border */
-    padding-top: 0;
+    /* padding-top: 0; */
 }
 
 .n-mbr-section-btn {
@@ -1922,4 +1923,20 @@ outline: none; /* Ensures there's no outline when the element is focused */
         height: 140px;
     }
     
+}
+
+.h-image {
+    width: 100%; /* Adjust the width as per your layout */
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    padding: 10px;
+}
+
+.h-image img {
+    width: 100%; /* Make the image responsive */
+    max-width: 700px; /* Restrict the maximum width */
+    height: auto;
+    border-radius: 10px; /* Give rounded corners to the image */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for a modern look */
 }
