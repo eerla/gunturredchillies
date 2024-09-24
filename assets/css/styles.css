@@ -927,8 +927,8 @@ h2, h3 {
     margin: 0px auto; /* Centered horizontally */
     text-align: center; /* Centered text */
     display: block;
-    padding-left: 75px; /* More whitespace */
-    padding-right: 75px;
+    padding-left: 25px; /* More whitespace */
+    padding-right: 25px;
     background-clip: padding-box; /* Background doesn’t overlap the border */
     /* padding-top: 0; */
 }
