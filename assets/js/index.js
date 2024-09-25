@@ -89,12 +89,12 @@ function toggleBlogPost(element) {
 // google sheets - price table
 const API_KEY = 'AIzaSyDTNXpn-TFWhInawEkrm94tp7wSVDIG9T0';
 const SPREADSHEET_ID = '1ntdLZUDLOj8cAfd6vessJ8-ENsbOBu05KuVtiELkq0Y';
-const RANGE = 'chilli_prices!A1:C18'; // Adjust this range based on your data structure
+const RANGE = 'chilli_prices!A:C'; // Adjust this range based on your data structure
 
 async function fetchDailyPrices() {
   const cacheKey = 'cachedDailyPrices';
   const cacheTimeKey = 'cacheTime';
-  const cacheDuration = 10000 * 60 * 1000; // Cache for 1 week
+  const cacheDuration = 7500*60*1000; // Cache for 1 week
 
   // Check if cached data exists and is still valid
   const cachedPrices = localStorage.getItem(cacheKey);
@@ -127,7 +127,7 @@ function displayPrices(prices) {
   const pricesContainer = document.getElementById('daily-prices');
   let html = '<table class="prices-table">';
   
-  html += '<thead><tr><th>Chilli Type</th><th>Variety</th><th>Price per Qtl</th></tr></thead>'; // Add table headers
+  html += '<thead><tr><th>Chilli Type</th><th>Variety</th><th>Price per Qtl (₹)</th></tr></thead>'; // Add table headers
   html += '<tbody>';
 
   prices.forEach(row => {
@@ -423,5 +423,19 @@ function generateBadges() {
 
 // Step 3: Call the function to generate badges on page load
 window.addEventListener('load', generateBadges);
+
+// market prices
+document.getElementById('toggleHeading').addEventListener('click', function() {
+  var pricesTable = document.getElementById('daily-prices');
+  var arrow = document.querySelector('.arrow');
+
+  // Toggle the visibility of the prices table
+  pricesTable.classList.toggle('market-prices');
+  
+  // Toggle the arrow rotation
+  arrow.classList.toggle('rotate');
+});
+
+
 // Fetch prices when the page loads
 window.onload = fetchDailyPrices;
