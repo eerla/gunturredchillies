@@ -425,17 +425,51 @@ function generateBadges() {
 window.addEventListener('load', generateBadges);
 
 // market prices
-document.getElementById('toggleHeading').addEventListener('click', function() {
-  var pricesTable = document.getElementById('daily-prices');
-  var arrow = document.querySelector('.arrow');
+var toggleHeading = document.getElementById('toggleHeading');
 
-  // Toggle the visibility of the prices table
-  pricesTable.classList.toggle('market-prices');
-  
-  // Toggle the arrow rotation
-  arrow.classList.toggle('rotate');
-});
+if (toggleHeading) {
+  toggleHeading.addEventListener('click', function() {
+    var pricesTable = document.getElementById('daily-prices');
+    var arrow = document.querySelector('.arrow');
+
+    // Toggle the visibility of the prices table
+    pricesTable.classList.toggle('market-prices');
+
+    // Toggle the arrow rotation
+    arrow.classList.toggle('rotate');
+  });
+}
 
 
+// slider
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const totalSlides = slides.length;
+
+function showSlide(index) {
+  const sliderContainer = document.querySelector('.slider-container');
+  const slides = document.querySelectorAll('.slide'); // Ensure slides are selected
+
+  // Check if slides exist
+  if (slides.length > 0) {
+      const slideWidth = slides[0].clientWidth;
+      sliderContainer.style.transform = `translateX(${-slideWidth * index}px)`;
+  } 
+}
+
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+function previousSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+}
+
+
+setInterval(nextSlide, 5000); 
+// Auto-slide every 3 seconds
 // Fetch prices when the page loads
 window.onload = fetchDailyPrices;
